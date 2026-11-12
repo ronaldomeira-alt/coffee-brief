@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Coffee Brief // Edição 012 · Quinta, 12 de Novembro de 2026</title>
+  <meta name="description" content="Coffee Brief: jornal digital diário de inteligência, tecnologia, negócios, economia e curiosidades para Ronaldo Meira.">
+  
+  <!-- Google Fonts: Cormorant Garamond, Inter, Source Serif 4 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Reset & Editorial Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAF7F2;
+      --text: #211D1A;
+      --accent: #A93618;
+      --border: #D8D0C7;
+      --border-light: rgba(216, 208, 199, 0.6);
+      --surface-card: #FFFFFF;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Source Serif 4', Georgia, serif;
+
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: 80px;
+    }
+
+    /* Container Centralizado com Largura Editorial Ótima */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       1. CABEÇALHO EDITORIAL (Exatamente como a referência aprovada)
+       ========================================================================== */
+    .site-header {
+      padding: 26px 0 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-main-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Ícone Minimalista de Xícara a Vapor em Terracota */
+    .brand-cup-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .brand-cup-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .header-divider-v {
+      width: 1px;
+      height: 38px;
+      background-color: var(--border);
+      flex-shrink: 0;
+    }
+
+    .brand-headings h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-headings p {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-style: italic;
+      color: var(--text);
+      margin-top: 3px;
+      letter-spacing: 0.01em;
+    }
+
+    .header-right-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .edition-info {
+      text-align: right;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .menu-burger-btn {
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+    }
+
+    .burger-line {
+      width: 22px;
+      height: 1.8px;
+      background-color: var(--text);
+      border-radius: 1px;
+    }
+
+    /* ==========================================================================
+       2. FAIXA DE INDICADORES ECONÔMICOS (Faixa Horizontal Sofisticada)
+       ========================================================================== */
+    .ticker-strip {
+      margin: 16px 0 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      background-color: #FAF7F2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+    }
+
+    .ticker-cell {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ticker-cell strong {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .ticker-val {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .ticker-up {
+      color: #059669;
+      font-weight: 600;
+    }
+
+    .ticker-down {
+      color: #DC2626;
+      font-weight: 600;
+    }
+
+    .ticker-divider {
+      width: 1px;
+      height: 14px;
+      background-color: var(--border);
+    }
+
+    /* Menu de Navegação Rápido pelas Editorias (Opcional, Discreto) */
+    .quick-nav {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px dashed var(--border);
+      scrollbar-width: none;
+    }
+    .quick-nav::-webkit-scrollbar { display: none; }
+
+    .quick-nav a {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6B635B;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    .quick-nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       3. SEÇÃO EDITORIAL (Editorias numeradas)
+       ========================================================================== */
+    .editorial-section {
+      margin-top: 36px;
+    }
+
+    .section-headline-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-num {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    .section-slash {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--border);
+    }
+
+    .section-name {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex-grow: 1;
+      height: 1px;
+      background-color: var(--border);
+    }
+
+    /* ==========================================================================
+       4. MATÉRIA EDITORIAL (Apresentação completa das notícias)
+       ========================================================================== */
+    .story-card {
+      margin-bottom: 52px;
+    }
+
+    .story-media {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 20px;
+      background-color: #EFECE6;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .story-media img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9.2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    /* Manchete Destaque com Barra Vertical Terracota */
+    .headline-wrap {
+      margin-bottom: 16px;
+    }
+
+    .headline-destaque {
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .story-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3.8vw, 2.35rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+      color: var(--text);
+    }
+
+    .story-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .story-title a:hover {
+      color: var(--accent);
+    }
+
+    .story-body {
+      font-family: var(--font-body);
+      font-size: 1.08rem;
+      line-height: 1.76;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .story-body p {
+      margin-bottom: 14px;
+    }
+
+    .story-source-row {
+      margin-top: 6px;
+    }
+
+    .source-link {
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .source-link:hover {
+      opacity: 0.82;
+    }
+
+    /* Curiosidades & Bits */
+    .curiosity-box {
+      background: #FAF5EE;
+      border: 1px solid #E4D8C8;
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 22px 24px;
+      margin-bottom: 30px;
+    }
+
+    .curiosity-kicker {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .curiosity-headline {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .curiosity-desc {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .curiosity-foot {
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      color: #6B635B;
+      font-weight: 500;
+    }
+
+    /* Café com Inglês Editorial Box */
+    .english-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .english-tag {
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .english-term {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .english-phonetic {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: #6B635B;
+      margin-bottom: 16px;
+    }
+
+    .english-meaning {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .english-quote-box {
+      background: #FAF7F2;
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      font-style: italic;
+      color: #38312C;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    /* Rodapé Monocle Style */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+      padding: 36px 0 20px;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: #6B635B;
+      line-height: 1.6;
+    }
+
+    .footer-stamp {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* Mobile First Adjustments */
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 16px;
+      }
+      .brand-headings h1 {
+        font-size: 1.7rem;
+      }
+      .brand-headings p {
+        font-size: 0.88rem;
+      }
+      .brand-cup-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .ticker-strip {
+        font-size: 0.72rem;
+        padding: 8px 12px;
+        gap: 8px;
+      }
+      .ticker-divider {
+        display: none;
+      }
+      .story-title {
+        font-size: 1.75rem;
+      }
+      .story-body {
+        font-size: 1.02rem;
+        line-height: 1.72;
+      }
+      .edition-info {
+        font-size: 0.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       CABEÇALHO EDITORIAL
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main-row">
+        
+        <!-- Logo e Título com Ícone de Xícara -->
+        <a href="#" class="brand-left">
+          <div class="brand-cup-icon" aria-label="Xícara de café">
+            <svg viewBox="0 0 24 24">
+              <!-- Vapor ondulado -->
+              <path d="M7 2c0 1.5 1 2 1 3s-1 1.5-1 3" />
+              <path d="M12 2c0 1.5 1 2 1 3s-1 1.5-1 3" />
+              <path d="M17 2c0 1.5 1 2 1 3s-1 1.5-1 3" />
+              <!-- Xícara -->
+              <path d="M4 10h13a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4h-1" />
+              <path d="M3 10h14v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7z" />
+              <!-- Pires -->
+              <path d="M2 21h18" />
+            </svg>
+          </div>
+          <div class="header-divider-v"></div>
+          <div class="brand-headings">
+            <h1>COFFEE BRIEF</h1>
+            <p>Ideias para começar o dia bem informado.</p>
+          </div>
+        </a>
+
+        <!-- Edição, Data e Menu -->
+        <div class="header-right-meta">
+          <div class="edition-info">
+            <div>EDIÇÃO 012 · QUINTA,</div>
+            <div>12 DE NOVEMBRO DE 2026</div>
+          </div>
+          <button class="menu-burger-btn" aria-label="Menu de editorias" onclick="document.querySelector('.quick-nav').scrollIntoView({behavior: 'smooth'})">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ========================================================================
+         FAIXA DE INDICADORES ECONÔMICOS
+         ======================================================================== -->
+    <div class="ticker-strip">
+      <div class="ticker-cell">
+        <strong>DÓLAR</strong>
+        <span class="ticker-val">R$ 5,78</span>
+        <span class="ticker-up">▲ +0,30%</span>
+      </div>
+      <div class="ticker-divider"></div>
+      <div class="ticker-cell">
+        <strong>BRENT</strong>
+        <span class="ticker-val">US$ 92,10</span>
+        <span class="ticker-down">▼ -1,40%</span>
+      </div>
+      <div class="ticker-divider"></div>
+      <div class="ticker-cell">
+        <strong>OURO</strong>
+        <span class="ticker-val">US$ 4.025</span>
+        <span class="ticker-up">▲ +0,80%</span>
+      </div>
+      <div class="ticker-divider"></div>
+      <div class="ticker-cell">
+        <strong>SAFRA BR</strong>
+        <span class="ticker-val">367,2M ton</span>
+        <span class="ticker-up" style="color: #A93618;">★ Recorde</span>
+      </div>
+    </div>
+
+    <!-- Navegação Discreta pelas Editorias -->
+    <nav class="quick-nav">
+      <a href="#destaques">01 / Destaques</a>
+      <a href="#ia-modelos">02 / IA & Modelos</a>
+      <a href="#negocios">03 / Negócios Digitais</a>
+      <a href="#economia">04 / Economia & Brasil</a>
+      <a href="#ciencia">05 / Ciência & Saúde</a>
+      <a href="#curiosidades">06 / Curiosidades</a>
+      <a href="#cafe-ingles">07 / Café com Inglês</a>
+    </nav>
+
+    <!-- ========================================================================
+         01 / DESTAQUES
+         ======================================================================== -->
+    <section class="editorial-section" id="destaques">
+      <div class="section-headline-bar">
+        <span class="section-num">01</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">DESTAQUES</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Matéria 1: Destaque Principal com barra terracota na manchete -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Chips de Semicondutores TSMC" loading="lazy">
+        </div>
+        <div class="headline-wrap headline-destaque">
+          <h3 class="story-title">
+            <a href="https://qz.com" target="_blank" rel="noopener">
+              O novo capítulo da inteligência artificial: TSMC aprova US$ 1 bilhão para Anthropic e OpenAI
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Em decisão estratégica aprovada pelo conselho de administração, a Taiwan Semiconductor Manufacturing Company (TSMC), maior fabricante global de semicondutores avançados, deu luz verde a um aporte conjunto de US$ 1 bilhão dividido entre a Anthropic e a OpenAI. O movimento simboliza uma mudança estrutural na cadeia de valor da computação: a gigante dos chips deixa de atuar unicamente como fornecedora terceirizada e assume assento como co-investidora direta dos maiores desenvolvedores de modelos de inteligência de fronteira.
+          </p>
+          <p>
+            A medida estreita os laços de fornecimento e garante prioridade absoluta na fabricação de wafers para aceleradores de próxima geração, em um momento de concorrência ferrenha por capacidade computacional. O investimento viabiliza a transição para arquiteturas de empacotamento 3D dedicadas a agentes autônomos, acelerando a chegada de sistemas capazes de operar fluxos de trabalho completos na rotina corporativa com ganhos expressivos de produtividade.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://qz.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================================================
+         02 / IA & MODELOS
+         ======================================================================== -->
+    <section class="editorial-section" id="ia-modelos">
+      <div class="section-headline-bar">
+        <span class="section-num">02</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">IA & MODELOS</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Matéria 2: AlphaGenome 2 -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80" alt="Estrutura de DNA e biologia molecular" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://siliconangle.com" target="_blank" rel="noopener">
+              DeepMind lança AlphaGenome 2 para prever a regulação do DNA humano
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Treinado sobre mais de 107 milhões de perfis de células individuais distribuídas em 68 tecidos humanos, o novo modelo do laboratório de IA do Google representa um salto na biologia computacional. O sistema consegue prever como mutações genéticas sutis afetam a expressão de proteínas e alteram o comportamento celular, abrindo caminho para o desenvolvimento de terapias sob medida e desvendando regiões não-codificantes do genoma antes consideradas indecifráveis.
+          </p>
+          <p>
+            A plataforma já foi disponibilizada para centros de pesquisa biomédica globais e promete encurtar em até cinco anos a fase pré-clínica de validação de novos fármacos contra doenças raras e degenerativas. A capacidade de simular o impacto regulatório de mutações em escala molecular coloca o AlphaGenome 2 na vanguarda da medicina preditiva.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://siliconangle.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 3: AlphaProof Signal -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Segurança cibernética e criptografia digital" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://deepmind.google" target="_blank" rel="noopener">
+              AlphaProof Code atinge verificação matemática formal no código do Signal
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            O framework de múltiplos agentes da DeepMind alcançou o marco inédito de provar matematicamente propriedades de segurança críticas na implementação do protocolo criptográfico do Signal. Em vez de depender exclusivamente de testes empíricos de penetração ou auditorias humanas manuais, o sistema converteu o código-fonte em teoremas formais e gerou provas automáticas de ausência de vulnerabilidades de memória e vazamento de chaves.
+          </p>
+          <p>
+            O avanço inaugura a era do software matematicamente blindado por inteligência artificial, demonstrando que agentes autônomos de raciocínio lógico podem assegurar a integridade de infraestruturas de privacidade e comunicações globais que protegem centenas de milhões de cidadãos diariamente.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://deepmind.google" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 4: Cognitive Surrender -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Reflexão e cognição sobre inteligência artificial" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://anthropic.com" target="_blank" rel="noopener">
+              Alerta de "Cognitive Surrender": Engenheiros da Anthropic apontam armadilha da dependência cega
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Pesquisadores da divisão de alinhamento e usabilidade da Anthropic publicaram um alerta incisivo sobre o fenômeno batizado de "rendição cognitiva" entre programadores e tomadores de decisão técnica. O estudo revela que profissionais experientes reduzem a vigilância crítica em até 60% quando ferramentas automatizadas apresentam respostas com alta eloqüência linguística, aprovando soluções sem conferir premissas arquiteturais fundamentais.
+          </p>
+          <p>
+            O relatório recomenda a adoção de guardrails de validação obrigatória e pausas de revisão estruturada no fluxo de trabalho com agentes, ressaltando que a delegação de tarefas operacionais nunca deve se confundir com a abdicação da responsabilidade analítica humana.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://anthropic.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 5: Pierre Computer Company -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Código-fonte e controle de versão" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://techcrunch.com" target="_blank" rel="noopener">
+              OpenAI adquire a Pierre Computer Company para potencializar controle de versão no Codex
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Com foco em aprimorar a engenharia de software autônoma, a OpenAI concluiu a compra da startup Pierre, criadora de um motor inovador de diff semântico que entende a intenção funcional de alterações em código além de meras linhas de texto. A tecnologia será integrada diretamente ao ambiente de execução do Codex e de agentes de desenvolvimento da empresa.
+          </p>
+          <p>
+            A aquisição busca resolver um dos maiores gargalos dos modelos de programação: a reconciliação precisa de conflitos de merge e a preservação de coerência em repositórios complexos com múltiplos agentes operando simultaneamente em branches paralelas.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://techcrunch.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 6: ChatGPT Images 2.6 -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80" alt="Geração visual criativa e digital" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://theverge.com" target="_blank" rel="noopener">
+              ChatGPT lança Images 2.6 com edição consistente e geração direta de GIFs
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A OpenAI disponibilizou uma atualização substancial em sua suíte de renderização visual no ChatGPT. A versão 2.6 introduz retenção de personagens e objetos através de múltiplos comandos consecutivos, permitindo manter o mesmo rosto, iluminação e estilo artístico em diferentes poses e ângulos de câmera sem distorções indesejadas.
+          </p>
+          <p>
+            Outra novidade importante é o suporte nativo à exportação de animações curtas e loops de até 4 segundos diretamente no formato GIF e MP4 leve, simplificando radicalmente o trabalho de equipes de criação de conteúdo, design e marketing digital.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://theverge.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 7: Microsoft Copilot Cowork -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80" alt="Ambiente de trabalho digital e produtividade" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://blogs.microsoft.com" target="_blank" rel="noopener">
+              Microsoft redesenha Copilot em "Home & Cowork" com agentes em segundo plano
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A Microsoft apresentou uma reformulação arquitetural no ecossistema do Copilot para clientes corporativos do Microsoft 365. A interface foi dividida em duas áreas fundamentais: o Home, para interações rápidas de chat e pesquisa, e o Cowork, um espaço dedicado à delegação de fluxos de trabalho contínuos que rodam de forma persistente mesmo com o aplicativo fechado.
+          </p>
+          <p>
+            Os novos agentes em background conseguem monitorar e-mails, consolidar planilhas compartilhadas e gerar atas analíticas de reuniões no Teams sem exigir comandos contínuos do usuário, consolidando a transição do assistente reativo para o colega de trabalho proativo.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://blogs.microsoft.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 8: Devin Cascade -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Desenvolvimento de software e telas de terminal" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://cognition.ai" target="_blank" rel="noopener">
+              Cognition integra motor Cascade ao Devin Desktop com suporte expandido a MCP
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A Cognition AI atualizou a versão local para desktop do Devin, seu engenheiro de software autônomo, integrando o motor de execução Cascade. A novidade otimiza a tomada de decisões em árvore e permite ao agente testar hipóteses de refatoração em ambientes sandbox isolados antes de aplicar mudanças nos repositórios principais dos clientes.
+          </p>
+          <p>
+            Além disso, a atualização expandiu a conformidade com o padrão Model Context Protocol (MCP), permitindo ao Devin conectar-se nativamente a dezenas de ferramentas locais de bancos de dados, emuladores e esteiras de integração contínua sem necessidade de scripts intermediários.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://cognition.ai" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 9: Apple Siri AI -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1200&q=80" alt="Dispositivo móvel e inteligência artificial contextual" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://apple.com" target="_blank" rel="noopener">
+              Apple refina Siri contextual e acelera suporte multilíngue no ecossistema iOS
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Em notas para desenvolvedores liberadas nesta semana, a Apple detalhou avanços na compreensão de contexto pessoal da nova geração da Siri impulsionada pelo Apple Intelligence. O assistente passa a correlacionar mensagens trocadas no iMessage, lembretes de agenda e arquivos anexados em e-mails para responder a perguntas complexas em linguagem natural com processamento prioritário no próprio aparelho.
+          </p>
+          <p>
+            A empresa também antecipou para o primeiro trimestre a expansão do processamento local de linguagem para novos idiomas, incluindo o português do Brasil, fortalecendo a privacidade de dados sem abrir mão da velocidade de resposta.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://apple.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================================================
+         03 / NEGÓCIOS DIGITAIS & SAAS
+         ======================================================================== -->
+    <section class="editorial-section" id="negocios">
+      <div class="section-headline-bar">
+        <span class="section-num">03</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">NEGÓCIOS DIGITAIS</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Matéria 10: Stripe Agentic Commerce -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80" alt="Pagamentos digitais e tecnologia financeira" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://stripe.com" target="_blank" rel="noopener">
+              Stripe lança Agentic Commerce Suite e protocolo aberto com a OpenAI
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A Stripe deu um passo decisivo para viabilizar compras autônomas efetuadas diretamente por inteligência artificial ao apresentar o Agentic Commerce Suite. A solução inclui um protocolo aberto desenvolvido em parceria com a OpenAI que permite a agentes de software pesquisar estoques, emitir cobranças e autenticar pagamentos dentro de limites financeiros estritamente parametrizados por humanos.
+          </p>
+          <p>
+            A infraestrutura prevê cartões virtuais temporários de uso único e mecanismos de confirmação criptográfica, criando a fundação para que assistentes virtuais realizem reservas, comprem insumos operacionais e paguem assinaturas de SaaS sem fricção manual.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://stripe.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 11: HubSpot Context Home -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Análise de métricas e CRM de marketing" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://hubspot.com" target="_blank" rel="noopener">
+              HubSpot lança Context Home e Nurture Agent para adaptar campanhas no envio
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A HubSpot anunciou o lançamento de duas ferramentas que redesenham a automação de marketing: o Context Home, um painel unificado que consolida sinais de navegação e histórico do cliente em tempo real, e o Nurture Agent, ferramenta autônoma que reescreve títulos de e-mail e ofertas no exato milissegundo em que o disparo é acionado.
+          </p>
+          <p>
+            A adaptação dinâmica considera as últimas interações do contato com a marca e notícias recentes do setor do cliente, resultando em saltos de até 35% nas taxas de abertura e respostas qualificadas em testes de canais B2B.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://hubspot.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 12: Zapier Central Editor -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Automação de processos e conexões de APIs" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://zapier.com" target="_blank" rel="noopener">
+              Zapier unifica agentes inteligentes no editor central com guardrails nativos
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Pioneira na integração de aplicativos em nuvem, a Zapier concluiu a unificação de seus agentes de IA ao editor clássico de fluxos. Agora, desenvolvedores e operadores podem alternar entre automações determinísticas rígidas (do tipo "se acontecer X, execute Y") e nós de raciocínio supervisionado alimentados por modelos de linguagem no mesmo pipeline.
+          </p>
+          <p>
+            O ambiente traz filtros de segurança configuráveis para evitar respostas alucinadas e garantir que ações sensíveis — como deleção de registros em bancos de dados ou envio de faturas — exijam dupla confirmação antes de qualquer execução externa.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://zapier.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 13: Creator Economy US$ 250B -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1200&q=80" alt="Produção de conteúdo e negócios digitais" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://goldmansachs.com" target="_blank" rel="noopener">
+              Economia dos criadores atinge US$ 250 bilhões e consolida transição para marcas próprias
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Relatório de inteligência econômica do Goldman Sachs apontou que o ecossistema global da economia dos criadores ultrapassou a marca de US$ 250 bilhões em faturamento acumulado, crescendo a um ritmo médio anual de 16%. O estudo destaca uma mudança profunda no modelo de receita: influenciadores e produtores independentes estão deixando de depender exclusivamente de verbas publicitárias de redes sociais para construir empresas de software, produtos físicos e comunidades fechadas.
+          </p>
+          <p>
+            A maturidade das plataformas de automação e logística sob demanda permitiu a criadores solo operarem estruturas com faturamentos milionários mantendo equipes enxutas e margens brutas acima de 50%, redefinindo o conceito tradicional de pequena empresa de alto impacto.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://goldmansachs.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================================================
+         04 / ECONOMIA & BRASIL
+         ======================================================================== -->
+    <section class="editorial-section" id="economia">
+      <div class="section-headline-bar">
+        <span class="section-num">04</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">ECONOMIA & BRASIL</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Matéria 14: Conab Safra Recorde -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80" alt="Plantações e agronegócio sustentável" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://conab.gov.br" target="_blank" rel="noopener">
+              Conab estima colheita recorde da safra 2026/27 acima de 367 milhões de toneladas
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A Companhia Nacional de Abastecimento (Conab) divulgou sua projeção para a safra de grãos 2026/27, estimando produção histórica superior a 367,2 milhões de toneladas no país. O resultado representa um avanço expressivo de quase 8% em relação ao ciclo anterior, impulsionado pela expansão da área plantada de soja no Centro-Oeste e pela forte recuperação dos índices de produtividade do milho safrinha.
+          </p>
+          <p>
+            A expectativa de safra farta no campo brasileiro atua como um elemento crucial de estabilização dos preços de alimentos nas prateleiras dos supermercados, aliviando o componente inflacionário nos índices gerais de preços e fortalecendo o saldo comercial da balança externa do Brasil.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://conab.gov.br" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 15: Ouro US$ 4.000 -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1200&q=80" alt="Barras de ouro e reservas financeiras" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://bloomberg.com" target="_blank" rel="noopener">
+              Ouro se mantém acima de US$ 4.000 por onça sustentado por bancos centrais
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A cotação do ouro nos mercados futuros internacionais manteve-se firme acima do patamar de US$ 4.025 a onça-troy. O metal precioso continua sendo impulsionado pela corrida de bancos centrais de mercados emergentes para diversificar reservas cambiais além das moedas tradicionais, buscando proteção contra riscos geopolíticos e volatilidades monetárias.
+          </p>
+          <p>
+            Analistas do setor de commodities observam que o fluxo de aportes em fundos de índice (ETFs) lastreados em ouro físico segue em patamares recordes pelo quarto mês consecutivo, reafirmando o papel do metal como reserva de valor indispensável em momentos de reconfiguração do comércio global.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://bloomberg.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 16: IBGE IPCA -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80" alt="Economia e finanças pessoais" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://ibge.gov.br" target="_blank" rel="noopener">
+              IBGE divulga IPCA de outubro com foco nas expectativas do mercado
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            O Instituto Brasileiro de Geografia e Estatística (IBGE) publica nesta semana a leitura oficial da inflação medida pelo Índice Nacional de Preços ao Consumidor Amplo (IPCA). A divulgação é aguardada com atenção redobrada pelo mercado financeiro e por analistas de política monetária, com atenções concentradas nos preços de serviços e energia elétrica.
+          </p>
+          <p>
+            Os números servirão como balizador central para as próximas deliberações do Comitê de Política Monetária (Copom) do Banco Central a respeito da taxa Selic, ditando os custos do crédito para famílias e empresas nos próximos meses.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://ibge.gov.br" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 17: Varejo Histórico -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80" alt="Comércio e atividade varejista" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener">
+              Vendas do varejo atingem topo histórico puxadas por farmácias e equipamentos
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            A Pesquisa Mensal de Comércio (PMC) apurada pelo IBGE registrou novo recorde para a série histórica do comércio varejista brasileiro. O avanço foi capitaneado pelo segmento de produtos farmacêuticos, médicos e cosméticos, acompanhado por forte aceleração nas vendas de computadores, periféricos e equipamentos para home office e automação.
+          </p>
+          <p>
+            O bom desempenho do comércio reflete a resiliência do mercado de trabalho formal, que mantém a massa salarial aquecida e estimula o consumo de bens duráveis e essenciais em todas as regiões do país.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 18: Petróleo Brent -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" alt="Indústria de energia e logística de combustíveis" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://reuters.com" target="_blank" rel="noopener">
+              Petróleo Brent recua para US$ 92 por barril e alivia custos de frete internacional
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Os contratos futuros do petróleo tipo Brent negociados na bolsa de Londres fecharam em queda, cotados próximos a US$ 92,10 o barril. O recuo decorre do aumento inesperado nos estoques comerciais de óleo bruto nos Estados Unidos e de dados indicando estabilização na demanda industrial na Ásia.
+          </p>
+          <p>
+            A moderação nos preços internacionais dos combustíveis é comemorada por companhias aéreas e de transporte rodoviário, gerando alívio direto sobre os custos das tarifas de frete logístico marítimo e cadeias de suprimentos globais.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://reuters.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 19: Dólar Global -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80" alt="Mercado de câmbio e índices internacionais" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://investing.com" target="_blank" rel="noopener">
+              Dólar segue fortalecido no exterior com indicadores de resiliência nos EUA
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            O índice DXY, que afere o desempenho da moeda norte-americana frente a uma cesta de seis divisas globais de referência, manteve trajetória de valorização moderada. Dados favoráveis sobre o mercado de trabalho norte-americano e vendas consistentes reforçam a percepção de que as taxas de juros básicas do Federal Reserve devem permanecer em níveis elevados por período mais prolongado.
+          </p>
+          <p>
+            O cenário de juros atrativos nos títulos do Tesouro dos EUA atrai capitais globais e sustenta a força do dólar no exterior, impondo desafios para moedas de países emergentes ao redor do globo.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://investing.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================================================
+         05 / CIÊNCIA & SAÚDE
+         ======================================================================== -->
+    <section class="editorial-section" id="ciencia">
+      <div class="section-headline-bar">
+        <span class="section-num">05</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">CIÊNCIA & SAÚDE</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Matéria 20: ELA Exame de Sangue -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" alt="Pesquisa médica em laboratório e neurologia" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://thelancet.com" target="_blank" rel="noopener">
+              Exame de sangue atinge 98% de precisão para diagnóstico precoce de ELA
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Em estudo publicado na revista científica The Lancet Neurology, um consórcio internacional de neurocientistas validou um teste sanguíneo inovador capaz de diagnosticar a Esclerose Lateral Amiotrófica (ELA) com 98% de acurácia em estágios iniciais, muito antes do surgimento de sintomas motores graves.
+          </p>
+          <p>
+            O teste detecta microRNAs e vesículas extracelulares específicas liberadas por neurônios motores em estresse, permitindo iniciar intervenções terapêuticas protetoras com anos de antecedência e transformando radicalmente o prognóstico dos pacientes afetados.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://thelancet.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 21: Rastreio Ovário -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1200&q=80" alt="Pesquisa oncológica e microscopia celular" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://nature.com" target="_blank" rel="noopener">
+              Identificado biomarcador no sangue para rastreio pré-canceroso de ovário
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Pesquisadores vinculados à Universidade Johns Hopkins descobriram uma assinatura proteica circulante que sinaliza lesões precursoras de neoplasia ovariana até 36 meses antes de qualquer detecção por exames de imagem convencionais como ultrassonografia pélvica ou ressonância magnética.
+          </p>
+          <p>
+            Considerado historicamente um dos tumores mais silenciosos e difíceis de rastrear na oncologia feminina, o câncer de ovário ganha assim uma ferramenta potencial de triagem preventiva não invasiva com potencial para salvar milhares de vidas anualmente ao redor do planeta.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://nature.com" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+
+      <!-- Matéria 22: Terapia CAR-T -->
+      <article class="story-card">
+        <div class="story-media">
+          <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=1200&q=80" alt="Terapia celular avançada e imunologia" loading="lazy">
+        </div>
+        <div class="headline-wrap">
+          <h3 class="story-title">
+            <a href="https://science.org" target="_blank" rel="noopener">
+              Terapia celular CAR-T recupera mobilidade em pacientes com Síndrome da Pessoa Rígida
+            </a>
+          </h3>
+        </div>
+        <div class="story-body">
+          <p>
+            Resultados de um ensaio clínico pioneiro demonstraram que a terapia com células CAR-T geneticamente modificadas conseguiu eliminar linfócitos B autoimunes rebeldes em indivíduos diagnosticados com a Síndrome da Pessoa Rígida. Pacientes que antes dependiam de cadeira de rodas voltaram a caminhar de forma independente após uma única infusão celular.
+          </p>
+          <p>
+            O sucesso da intervenção abre uma nova fronteira para a reprogramação do sistema imunológico em dezenas de outras condições neuroimunológicas raras e refratárias, consolidando o Brasil e centros internacionais na vanguarda da medicina celular.
+          </p>
+        </div>
+        <div class="story-source-row">
+          <a href="https://science.org" target="_blank" rel="noopener" class="source-link">Fonte original ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================================================
+         06 / BITS & CURIOSIDADES FASCINANTES
+         ======================================================================== -->
+    <section class="editorial-section" id="curiosidades">
+      <div class="section-headline-bar">
+        <span class="section-num">06</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">BITS & CURIOSIDADES</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Curiosidade 1 -->
+      <div class="curiosity-box">
+        <div class="curiosity-kicker">☕ Origem da Tecnologia</div>
+        <h3 class="curiosity-headline">A primeira webcam do mundo nasceu para monitorar uma cafeteira</h3>
+        <p class="curiosity-desc">
+          Em 1991, nos laboratórios da Universidade de Cambridge, os cientistas Quentin Stafford-Fraser e Paul Jardetzky criaram a primeira câmera conectada em rede da história apenas para não descerem as escadas do departamento e encontrarem o bule de café vazio. Uma imagem em preto e branco de 128x128 pixels transmitida a 1 quadro por segundo inaugurou a tecnologia que hoje move o trabalho remoto e a comunicação em vídeo no mundo inteiro.
+        </p>
+        <div class="curiosity-foot">📹 Cambridge (1991) · Trojan Room Coffee Pot · 128x128 pixels</div>
+      </div>
+
+      <!-- Curiosidade 2 -->
+      <div class="curiosity-box">
+        <div class="curiosity-kicker">🧬 Dados & Biologia</div>
+        <h3 class="curiosity-headline">1 grama de DNA sintético é capaz de armazenar 215 milhões de gigabytes</h3>
+        <p class="curiosity-desc">
+          Pesquisas das universidades de Harvard e do MIT provaram que toda a informação já digitalizada pela humanidade caberia em um bloco de DNA sintético do tamanho de uma caixa de sapatos. Além de uma densidade física sem paralelo na engenharia eletrônica, o DNA resiste intacto por mais de dez mil anos sem consumir um único watt de energia elétrica para manter os dados gravados.
+        </p>
+        <div class="curiosity-foot">💾 215 Petabytes por grama · Durabilidade superior a 10.000 anos</div>
+      </div>
+
+      <!-- Curiosidade 3 -->
+      <div class="curiosity-box">
+        <div class="curiosity-kicker">🌐 Infraestrutura Oculta</div>
+        <h3 class="curiosity-headline">Quase 99% do tráfego da internet mundial cruza o leito dos oceanos</h3>
+        <p class="curiosity-desc">
+          Diferente da crença popular de que a internet é mantida por satélites espaciais, menos de 1% dos dados transcontinentais passa pela órbita terrestre. Mais de 550 cabos submarinos de fibra óptica — muitos com a espessura de uma mangueira de jardim — cruzam o assoalho oceânico. Entre eles está o cabo EllaLink, que liga diretamente a costa de Fortaleza a Sines, em Portugal, transportando 100 Terabits por segundo com apenas 60 milissegundos de latência.
+        </p>
+        <div class="curiosity-foot">🌊 1,4 milhão de km de cabos · Fortaleza–Portugal a 60ms</div>
+      </div>
+
+      <!-- Curiosidade 4 -->
+      <div class="curiosity-box">
+        <div class="curiosity-kicker">🦆 Neurociência Aplicada</div>
+        <h3 class="curiosity-headline">O método do 'Patinho de Borracha' ativa áreas de resolução no cérebro</h3>
+        <p class="curiosity-desc">
+          O costume popular entre programadores de colocar um patinho de borracha sobre a bancada e explicar o código linha por linha para ele tem fundamento comprovado na ciência cognitiva. Ao transformar pensamentos abstratos em fala articulada para um interlocutor silencioso, o cérebro ativa o córtex pré-frontal e desacelera o ritmo cognitivo, revelando falhas e inconsistências que passavam despercebidas na leitura silenciosa.
+        </p>
+        <div class="curiosity-foot">🧠 Ativação do córtex pré-frontal · Rubber Duck Debugging</div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         07 / CAFÉ COM INGLÊS
+         ======================================================================== -->
+    <section class="editorial-section" id="cafe-ingles">
+      <div class="section-headline-bar">
+        <span class="section-num">07</span>
+        <span class="section-slash">/</span>
+        <h2 class="section-name">CAFÉ COM INGLÊS</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="english-card">
+        <div class="english-tag">Expressão Técnica do Dia</div>
+        <h3 class="english-term">Cognitive Surrender</h3>
+        <div class="english-phonetic">/ˈkɒɡ.nə.tɪv səˈren.dər/ · Substantivo composto</div>
+        <p class="english-meaning">
+          Expressão em destaque nos debates de inteligência artificial de fronteira para descrever o comportamento em que um profissional delega de forma passiva sua capacidade de raciocínio crítico para um sistema automatizado, aceitando saídas geradas por IA sem questionar premissas ou auditar resultados.
+        </p>
+        <div class="english-quote-box">
+          "Engineers must avoid <strong>cognitive surrender</strong> when deploying autonomous agents in production systems, maintaining rigorous code reviews regardless of how confident the AI appears."
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       RODAPÉ EDITORIAL
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-stamp">Coffee Brief · Edição 012</div>
+      <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Ideias para começar o dia bem informado · Ronaldo Meira</p>
+      <p style="margin-bottom: 12px;">João Pessoa, Paraíba · Servido localmente no Homelab (Porta 8088)</p>
+      <p style="max-width: 600px; margin: 0 auto; font-size: 0.72rem; color: #8A8177; line-height: 1.5;">
+        Curadoria jornalística autônoma realizada diariamente a partir de fontes primárias e verificadas nas últimas 24 horas. Isento de viés político-partidário e focado em inteligência prática para negócios e tecnologia.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
