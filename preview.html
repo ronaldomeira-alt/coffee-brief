@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -21,65 +21,68 @@
     }
 
     :root {
-      /* Modo Claro (Paleta Monocle Original) */
-      --bg: #FAF7F2;
-      --text: #211D1A;
-      --text-muted: #6B635B;
-      --text-dim: #8A8177;
-      --accent: #A93618;
-      --border: #D8D0C7;
-      --border-light: rgba(216, 208, 199, 0.65);
+      /* Modo Claro Tech */
+      --bg: #F8FAFC;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #94A3B8;
+      --accent: #2563EB;
+      --accent-hover: #1D4ED8;
+      --border: #E2E8F0;
+      --border-light: rgba(226, 232, 240, 0.7);
       --card-bg: #FFFFFF;
-      --box-bg: #FAF5EE;
-      --box-border: #E4D8C8;
-      --quote-bg: #FAF7F2;
-      --quote-text: #38312C;
-      --ticker-bg: #FAF7F2;
-      --img-bg: #EFECE6;
+      --box-bg: #F1F5F9;
+      --box-border: #E2E8F0;
+      --quote-bg: #F8FAFC;
+      --quote-text: #1E293B;
+      --ticker-bg: #F1F5F9;
+      --img-bg: #E2E8F0;
 
       --font-display: 'Google Sans', 'Product Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Google Sans Text', 'Google Sans', 'Product Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-sans: 'Google Sans', 'Product Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-      --radius-sm: 4px;
-      --radius-md: 6px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
     }
 
-    /* Modo Escuro Editorial (Warm Espresso & Charcoal) */
+    /* Modo Escuro Tech (Idêntico ao painel de referência) */
     [data-theme="dark"] {
-      --bg: #141210;
-      --text: #EAE4DC;
-      --text-muted: #A69E94;
-      --text-dim: #7C746B;
-      --accent: #D9532F; /* Terracota luminoso para contraste impecável */
-      --border: #2C2621;
+      --bg: #0D0F12;
+      --text: #FFFFFF;
+      --text-muted: #9AA0A6;
+      --text-dim: #636B78;
+      --accent: #3B82F6; /* Azul Elétrico Tech da referência */
+      --accent-hover: #60A5FA;
+      --border: #1E2532;
       --border-light: rgba(255, 255, 255, 0.08);
-      --card-bg: #1B1815;
-      --box-bg: #1F1B18;
-      --box-border: #3A322B;
-      --quote-bg: #171513;
-      --quote-text: #C7BFB5;
-      --ticker-bg: #181513;
-      --img-bg: #221F1C;
+      --card-bg: #15181D; /* Fundo dos cartões na referência */
+      --box-bg: #1A1D23; /* Fundo secundário das caixas de destaque */
+      --box-border: #222938;
+      --quote-bg: #13161C;
+      --quote-text: #E2E8F0;
+      --ticker-bg: #111317;
+      --img-bg: #15181D;
     }
 
     /* Suporte automático a preferência do sistema se não houver escolha manual */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #141210;
-        --text: #EAE4DC;
-        --text-muted: #A69E94;
-        --text-dim: #7C746B;
-        --accent: #D9532F;
-        --border: #2C2621;
+        --bg: #0D0F12;
+        --text: #FFFFFF;
+        --text-muted: #9AA0A6;
+        --text-dim: #636B78;
+        --accent: #3B82F6;
+        --accent-hover: #60A5FA;
+        --border: #1E2532;
         --border-light: rgba(255, 255, 255, 0.08);
-        --card-bg: #1B1815;
-        --box-bg: #1F1B18;
-        --box-border: #3A322B;
-        --quote-bg: #171513;
-        --quote-text: #C7BFB5;
-        --ticker-bg: #181513;
-        --img-bg: #221F1C;
+        --card-bg: #15181D;
+        --box-bg: #1A1D23;
+        --box-border: #222938;
+        --quote-bg: #13161C;
+        --quote-text: #E2E8F0;
+        --ticker-bg: #111317;
+        --img-bg: #15181D;
       }
     }
 
@@ -645,7 +648,7 @@
           </div>
           <div class="header-divider-v"></div>
           <div class="brand-headings">
-            <h1 class="brand-title">COFFEE BRIEF</h1>
+            <h1 class="brand-title">COFFEE <span style="color: var(--accent);">BRIEF</span></h1>
           </div>
         </a>
 
@@ -1415,7 +1418,7 @@
     function getPreferredTheme() {
       const saved = localStorage.getItem('cb_editorial_theme');
       if (saved) return saved;
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark';
     }
 
     function applyTheme(theme) {
