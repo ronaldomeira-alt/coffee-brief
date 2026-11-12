@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Brief, 12/11/2026 — Edição Diária</title>
+  <meta name="description" content="Edição diária do Coffee Brief de 12 de novembro de 2026. Portal pessoal de notícias de Ronaldo Meira em Tecnologia, Negócios Digitais, Economia e Ciência.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface-subtle: #f1f3f5;
+      --surface-hover: #f8f9fa;
+      --text: #1a1e24;
+      --text-muted: #525a65;
+      --text-light: #7b8592;
+      --border: #e6e9ed;
+      --border-dark: #1a1e24;
+      --coffee: #683817;
+      --coffee-light: #8c5224;
+      --coffee-subtle: #fbf5ee;
+      --coffee-border: #ebd9c8;
+      --accent: #2563eb;
+      --accent-subtle: #eff6ff;
+      --tag-tech: #0369a1;
+      --tag-tech-bg: #e0f2fe;
+      --tag-biz: #047857;
+      --tag-biz-bg: #d1fae5;
+      --tag-econ: #b45309;
+      --tag-econ-bg: #fef3c7;
+      --tag-science: #4338ca;
+      --tag-science-bg: #e0e7ff;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 24px rgba(0,0,0,0.08);
+      --font-serif: 'Newsreader', 'Georgia', serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #16a34a;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+    .weather-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    /* Masthead Header */
+    header.site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0 20px;
+      margin-bottom: 24px;
+    }
+    .masthead-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand-logo-icon {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, var(--coffee), var(--coffee-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(104, 56, 23, 0.25);
+    }
+    .brand-logo-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+    .brand-titles h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--border-dark);
+    }
+    .brand-titles p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .masthead-meta {
+      text-align: right;
+    }
+    .edition-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--coffee);
+      background: var(--coffee-subtle);
+      border: 1px solid var(--coffee-border);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 6px;
+    }
+    .edition-date {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--border-dark);
+    }
+
+    /* Category Navigation */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 14px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--surface-subtle);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--border-dark);
+      color: #ffffff;
+    }
+
+    /* Market Ticker Bar */
+    .ticker-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .ticker-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .ticker-label {
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ticker-value {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .ticker-up { color: #16a34a; font-weight: 600; }
+    .ticker-down { color: #dc2626; font-weight: 600; }
+
+    /* Section Styling */
+    section.news-section {
+      margin-bottom: 44px;
+    }
+    .section-header-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-dark);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--border-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-count {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--surface-subtle);
+      color: var(--text-muted);
+    }
+
+    /* Hero Headline Layout */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    /* Cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    /* Media Img Wrapper */
+    .card-media {
+      position: relative;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-media img {
+      transform: scale(1.03);
+    }
+    .media-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    /* Card Content */
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .kicker-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .kicker-tech { color: var(--tag-tech); }
+    .kicker-biz { color: var(--tag-biz); }
+    .kicker-econ { color: var(--tag-econ); }
+    .kicker-science { color: var(--tag-science); }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.28rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--border-dark);
+      margin-bottom: 12px;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .card-title a:hover {
+      color: var(--coffee);
+      text-decoration: underline;
+    }
+
+    .card-excerpt {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* Hero Card Specific */
+    .hero-lead .card-media {
+      height: 380px;
+    }
+    .hero-lead .card-body {
+      padding: 28px;
+    }
+    .hero-lead .card-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .hero-lead .card-excerpt {
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    /* Side Stack Cards */
+    .side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .side-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .side-card .card-media {
+      height: 170px;
+    }
+    .side-card .card-body {
+      padding: 16px 18px;
+    }
+    .side-card .card-title {
+      font-size: 1.12rem;
+    }
+
+    /* Card Footer / Source */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: auto;
+    }
+    .source-pill {
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      background: var(--surface-subtle);
+      padding: 2px 8px;
+      border-radius: 4px;
+      transition: background 0.15s ease;
+    }
+    .source-pill:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+    .read-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .grid-3 .card-media, .grid-2 .card-media {
+      height: 200px;
+    }
+
+    /* Compact News Row */
+    .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .compact-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+    }
+    .compact-card:hover {
+      border-color: var(--border-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .compact-card .card-title {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .compact-card .card-excerpt {
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+
+    /* Highlight Card (Stripe / Conab) */
+    .highlight-card {
+      background: linear-gradient(to right, #ffffff, #faf7f2);
+      border-left: 4px solid var(--coffee);
+    }
+
+    /* Café com Inglês Editorial Box */
+    .cafe-feature-box {
+      background: #ffffff;
+      border: 2px solid var(--coffee-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      margin-top: 10px;
+    }
+    .cafe-image-col {
+      position: relative;
+      background: #e2d2c3;
+    }
+    .cafe-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cafe-content-col {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--coffee-subtle);
+    }
+    .cafe-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--coffee);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cafe-term {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--border-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .cafe-def {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .cafe-example-box {
+      background: #ffffff;
+      border-left: 4px solid var(--coffee-light);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-sm);
+    }
+    .cafe-example-box strong {
+      color: var(--border-dark);
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      padding: 40px 0 20px;
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .footer-homelab-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+    .homelab-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .cafe-feature-box {
+        grid-template-columns: 1fr;
+      }
+      .cafe-image-col {
+        height: 240px;
+      }
+    }
+    @media (max-width: 640px) {
+      .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .masthead-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      .masthead-meta {
+        text-align: left;
+      }
+      .cafe-content-col {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span class="badge-live"><span class="pulse-dot"></span> Edição Matinal Atualizada</span>
+        <span class="weather-pill">🌤️ João Pessoa, PB · 28°C</span>
+      </div>
+      <div>
+        <span>23 Fatos Verificados · Leitura estimada: 7 min</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Masthead -->
+  <header class="site-header">
+    <div class="container">
+      <div class="masthead-inner">
+        <div class="brand-group">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 19h18v2H2v-2zm2-2V5h12v12H4zm14-8h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2V9zm-2-2h4a4 4 0 0 1 4 4v2a4 4 0 0 1-4 4h-4v-2zM6 7h8v2H6V7z"/></svg>
+          </div>
+          <div class="brand-titles">
+            <h1>Coffee Brief</h1>
+            <p>O jornal pessoal de inteligência e mercado de Ronaldo Meira</p>
+          </div>
+        </div>
+        <div class="masthead-meta">
+          <div class="edition-pill">EDIÇÃO Nº 317 · HOMELAB</div>
+          <div class="edition-date">Quinta-feira, 12 de Novembro de 2026</div>
+        </div>
+      </div>
+
+      <!-- Category Filter Navigation -->
+      <nav class="nav-bar">
+        <a href="#destaques" class="nav-link active">🔥 Principais Fatos</a>
+        <a href="#tecnologia" class="nav-link">🤖 Tecnologia & IA</a>
+        <a href="#negocios" class="nav-link">💼 Negócios Digitais</a>
+        <a href="#economia" class="nav-link">🌍 Economia & Brasil</a>
+        <a href="#saude" class="nav-link">🔬 Ciência & Saúde</a>
+        <a href="#cafe-ingles" class="nav-link">☕ Café com Inglês</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Market Snapshot Ticker -->
+    <div class="ticker-bar">
+      <div class="ticker-item">
+        <span class="ticker-label">💵 Dólar Comercial</span>
+        <span class="ticker-value ticker-up">R$ 5,78 ▲ +0,3%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">🛢️ Petróleo Brent</span>
+        <span class="ticker-value ticker-down">US$ 92,10 ▼ -1,4%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">🥇 Ouro (Onça-troy)</span>
+        <span class="ticker-value ticker-up">US$ 4.025 ▲ +0,8%</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-label">🌾 Safra Conab 26/27</span>
+        <span class="ticker-value" style="color: #047857;">367,2M ton ★ Recorde</span>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 1: DESTAQUES / TECNOLOGIA E IA -->
+    <section class="news-section" id="tecnologia">
+      <div class="section-header-box">
+        <h2 class="section-title">
+          <span>🤖 Tecnologia & Inteligência Artificial</span>
+        </h2>
+        <span class="section-count">9 notícias apuradas</span>
+      </div>
+
+      <!-- Hero 2:1 Layout -->
+      <div class="hero-layout" id="destaques">
+        
+        <!-- Manchete Principal -->
+        <article class="card hero-lead">
+          <div class="card-media">
+            <span class="media-badge">Manchete do Dia</span>
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Chips de Semicondutores TSMC" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-tech">Semicondutores & Investimento de Fronteira</span>
+              <h3 class="card-title">
+                <a href="https://qz.com" target="_blank" rel="noopener">
+                  TSMC aprova investimento de US$ 1 bilhão dividido entre Anthropic e OpenAI
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                Em decisão estratégica aprovada pelo conselho de administração, a Taiwan Semiconductor Manufacturing Company (TSMC), maior fabricante global de semicondutores avançados, autorizou aportes de até US$ 500 milhões em ações na aguardada estreia da Anthropic na bolsa e outros US$ 500 milhões em ações preferenciais da OpenAI. A iniciativa marca a expansão inédita da gigante asiática além da fabricação física de silício, fincando posição direta no capital dos dois maiores ecossistemas de modelos de fronteira do planeta.
+              </p>
+              <p class="card-excerpt" style="font-size: 0.92rem; color: var(--text-light);">
+                A medida estreita os laços de fornecimento e prioridade de fabricação de aceleradores em um momento de concorrência ferrenha por capacidade computacional e transição para arquiteturas de empacotamento 3D dedicadas a agentes autônomos.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 3 min de leitura</span>
+              <a href="https://qz.com" target="_blank" rel="noopener" class="source-pill">Fonte: Quartz ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Side Stack Stories -->
+        <div class="side-stack">
+          
+          <article class="card side-card">
+            <div class="card-media">
+              <span class="media-badge">Biologia IA</span>
+              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="DNA e Biologia Molecular" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div>
+                <span class="kicker-tag kicker-tech">Biologia Computacional</span>
+                <h4 class="card-title">
+                  <a href="https://siliconangle.com" target="_blank" rel="noopener">
+                    DeepMind lança AlphaGenome 2 para prever regulação do DNA humano
+                  </a>
+                </h4>
+                <p class="card-excerpt">
+                  Treinado sobre mais de 107 milhões de perfis de células individuais em 68 tecidos, o novo modelo mapeia como variações e mutações genéticas afetam a atividade celular específica, encurtando anos de triagem pré-clínica de fármacos em semanas.
+                </p>
+              </div>
+              <div class="card-footer">
+                <span class="read-time">⏱️ 2 min</span>
+                <a href="https://siliconangle.com" target="_blank" rel="noopener" class="source-pill">Fonte: SiliconANGLE ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card side-card">
+            <div class="card-media">
+              <span class="media-badge">Segurança Formal</span>
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Cibersegurança e Criptografia" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div>
+                <span class="kicker-tag kicker-tech">Cibersegurança & Criptografia</span>
+                <h4 class="card-title">
+                  <a href="https://deepmind.google" target="_blank" rel="noopener">
+                    AlphaProof Code atinge verificação matemática formal no código do Signal
+                  </a>
+                </h4>
+                <p class="card-excerpt">
+                  O framework de múltiplos agentes da DeepMind alcançou o marco de provar matematicamente propriedades de segurança críticas na implementação de código real do protocolo criptográfico de ponta a ponta do aplicativo Signal.
+                </p>
+              </div>
+              <div class="card-footer">
+                <span class="read-time">⏱️ 2 min</span>
+                <a href="https://deepmind.google" target="_blank" rel="noopener" class="source-pill">Fonte: Google DeepMind ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Grid 3 Colunas com Imagens nas Principais -->
+      <div class="grid-3">
+        
+        <article class="card">
+          <div class="card-media">
+            <span class="media-badge">Modelos Visuais</span>
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Arte Digital e Imagens com IA" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-tech">Geração Multimodal</span>
+              <h4 class="card-title">
+                <a href="https://openai.com" target="_blank" rel="noopener">
+                  ChatGPT lança Images 2.6 com edição consistente e geração direta de GIFs
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                A nova geração do motor visual do ChatGPT introduz preservação consistente de personagens e produtos entre diferentes prompts, suporte a controle granular por máscaras e geração nativa de loops animados e GIFs em alta definição.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://openai.com" target="_blank" rel="noopener" class="source-pill">Fonte: OpenAI ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-tech">Engenharia de Software</span>
+              <h4 class="card-title">
+                <a href="https://infoq.com" target="_blank" rel="noopener">
+                  Alerta de "Cognitive Surrender": Engenheiros da Anthropic apontam armadilha da dependência cega
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                Em publicações e debates internos sobre o uso massivo do Claude Code, líderes técnicos alertam que a delegação irrestrita da geração de código sem validação crítica reduz a capacidade cognitiva e de supervisão dos engenheiros, exigindo o redesenho de processos com ênfase em arquitetura e inspeção ativa ("harness design").
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 3 min</span>
+              <a href="https://infoq.com" target="_blank" rel="noopener" class="source-pill">Fonte: InfoQ ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-tech">Ecossistema de Desenvolvedores</span>
+              <h4 class="card-title">
+                <a href="https://openai.com" target="_blank" rel="noopener">
+                  OpenAI adquire a Pierre Computer Company para potencializar controle de versão no Codex
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                A OpenAI anunciou a compra da Pierre, criadora de bibliotecas de código aberto amplamente usadas em diffs e gestão de repositórios, visando aperfeiçoar fluxos nativos de Git e mesclagens de branch executadas autonomamente por agentes de programação.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://openai.com" target="_blank" rel="noopener" class="source-pill">Fonte: OpenAI ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Demais Notícias de Tecnologia em Cards Compactos -->
+      <div class="compact-grid">
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-tech">Produtividade Corporativa</span>
+            <h4 class="card-title">
+              <a href="https://blogs.microsoft.com" target="_blank" rel="noopener">
+                Microsoft redesenha Copilot em "Home & Cowork" com agentes em background
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              A atualização do Microsoft 365 Copilot separa fluxos em duas abas principais: "Home" para respostas e triagens imediatas e "Cowork" para atribuir rotinas assíncronas a agentes especializados que operam sobre arquivos do SharePoint e e-mails corporativos.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://blogs.microsoft.com" target="_blank" rel="noopener" class="source-pill">Fonte: Microsoft ↗</a>
+          </div>
+        </div>
+
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-tech">Ferramentas de Programação</span>
+            <h4 class="card-title">
+              <a href="https://cognition.ai" target="_blank" rel="noopener">
+                Cognition integra motor Cascade ao Devin Desktop com suporte expandido a MCP
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              O assistente autônomo de engenharia Devin recebeu o modo Cascade, permitindo orquestrar múltiplos subagentes locais em paralelo, além de compatibilidade nativa com ferramentas via protocolo MCP direto no aplicativo desktop.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://cognition.ai" target="_blank" rel="noopener" class="source-pill">Fonte: Devin.ai ↗</a>
+          </div>
+        </div>
+
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-tech">Sistemas Operacionais & Dispositivos</span>
+            <h4 class="card-title">
+              <a href="https://appleinsider.com" target="_blank" rel="noopener">
+                Apple refina Siri AI contextual e acelera suporte multilíngue no iOS
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              Testes da versão de desenvolvedores confirmam indexação profunda de dados em tela e consciência de contexto de conversas passadas na nova arquitetura da Siri, com previsão de lançamento das funcionalidades em português no início do primeiro trimestre.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://appleinsider.com" target="_blank" rel="noopener" class="source-pill">Fonte: AppleInsider ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SEÇÃO 2: NEGÓCIOS DIGITAIS & AUTOMAÇÃO -->
+    <section class="news-section" id="negocios">
+      <div class="section-header-box">
+        <h2 class="section-title">
+          <span>💼 Negócios Digitais & Automação</span>
+        </h2>
+        <span class="section-count">4 destaques</span>
+      </div>
+
+      <div class="grid-2">
+        
+        <article class="card highlight-card">
+          <div class="card-media">
+            <span class="media-badge">Fintech & Pagamentos</span>
+            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=700&q=80" alt="Pagamentos Digitais e Checkout" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-biz">Infraestrutura de Pagamentos Autônomos</span>
+              <h3 class="card-title">
+                <a href="https://stripe.com/newsroom" target="_blank" rel="noopener">
+                  Stripe lança Agentic Commerce Suite e protocolo aberto com a OpenAI
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                A Stripe colocou em produção uma suíte completa de APIs e componentes de autorização financeira desenhados para compras executadas diretamente por agentes de IA. Desenvolvido em colaboração com a OpenAI, o protocolo inclui cofres de pagamento com limites programáveis, checkout sem atrito assistido por inteligência artificial e trilhas de auditoria criptografadas.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://stripe.com/newsroom" target="_blank" rel="noopener" class="source-pill">Fonte: Stripe ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="media-badge">CRM & Marketing</span>
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="Analytics e Automação de Marketing" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-biz">CRM & Marketing Orientado a Intenção</span>
+              <h3 class="card-title">
+                <a href="https://hubspot.com" target="_blank" rel="noopener">
+                  HubSpot lança Context Home e Nurture Agent para adaptar campanhas no envio
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                A nova central Context Home unifica sinais de intenção de compra de diversas plataformas em tempo real, enquanto o Nurture Agent reescreve automaticamente trechos de e-mails, ofertas e cadências de nutrição de acordo com o estágio de maturidade de cada lead no momento exato do disparo.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://hubspot.com" target="_blank" rel="noopener" class="source-pill">Fonte: HubSpot ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="compact-grid" style="margin-top: 22px;">
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-biz">Fluxos de Trabalho Sem Código</span>
+            <h4 class="card-title">
+              <a href="https://zapier.com" target="_blank" rel="noopener">
+                Zapier unifica agentes inteligentes no editor central com guardrails nativos
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              A atualização unifica a criação de Zaps tradicionais e fluxos de múltiplos agentes em uma única tela visual, com bloqueios automáticos e limites de custo integrados para evitar execuções imprevistas ou loops caros de APIs.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://zapier.com" target="_blank" rel="noopener" class="source-pill">Fonte: Zapier ↗</a>
+          </div>
+        </div>
+
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-biz">Creator Economy & Produtos Digitais</span>
+            <h4 class="card-title">
+              <a href="https://forbes.com" target="_blank" rel="noopener">
+                Economia dos criadores atinge US$ 250 bilhões e consolida transição para marcas próprias
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              Levantamento setorial aponta que a receita direta com venda de produtos físicos e digitais próprios superou pela primeira vez a receita gerada exclusivamente por publicidade e patrocínios tradicionais entre criadores independentes de médio e grande porte.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://forbes.com" target="_blank" rel="noopener" class="source-pill">Fonte: Forbes ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SEÇÃO 3: BRASIL E MUNDO (ECONOMIA REAL) -->
+    <section class="news-section" id="economia">
+      <div class="section-header-box">
+        <h2 class="section-title">
+          <span>🌍 Brasil e Mundo · Economia Real & Mercados</span>
+        </h2>
+        <span class="section-count">6 fatos apurados</span>
+      </div>
+
+      <div class="grid-3">
+        
+        <article class="card">
+          <div class="card-media">
+            <span class="media-badge">Agronegócio Recorde</span>
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" alt="Lavoura de Grãos Brasil" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-econ">Agronegócio & Alimentos</span>
+              <h4 class="card-title">
+                <a href="https://conab.gov.br" target="_blank" rel="noopener">
+                  Conab estima colheita recorde da safra 2026/27 acima de 367 milhões de toneladas
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                O primeiro levantamento consolidado aponta expansão de 8,4% na produção total de grãos no país, impulsionada pela recuperação das produtividades médias da soja no Centro-Oeste e maior área plantada de milho safrinha.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://conab.gov.br" target="_blank" rel="noopener" class="source-pill">Fonte: Conab ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="media-badge">Mercado Financeiro</span>
+            <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=600&q=80" alt="Barras de Ouro e Reservas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-econ">Reserva de Valor</span>
+              <h4 class="card-title">
+                <a href="https://gold.org" target="_blank" rel="noopener">
+                  Ouro se mantém acima de US$ 4.000 por onça sustentado por bancos centrais
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                A cotação do metal precioso consolidou novo piso histórico em US$ 4.025, impulsionada por compras líquidas contínuas de autoridades monetárias na Ásia e no Oriente Médio visando diversificação de reservas soberanas.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://gold.org" target="_blank" rel="noopener" class="source-pill">Fonte: World Gold Council ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-econ">Inflação & Custo de Vida</span>
+              <h4 class="card-title">
+                <a href="https://ibge.gov.br" target="_blank" rel="noopener">
+                  IBGE divulga IPCA de outubro nesta quinta-feira com foco no teto da meta
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                O mercado financeiro projeta alta mensal de cerca de 0,55%, pressionada pela bandeira vermelha tarifária de energia elétrica e reajustes sazonais em carnes bovinas, mantendo o acumulado em 12 meses próximo a 4,75%.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://ibge.gov.br" target="_blank" rel="noopener" class="source-pill">Fonte: IBGE ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="compact-grid" style="margin-top: 22px;">
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-econ">Comércio Varejista</span>
+            <h4 class="card-title">
+              <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener">
+                Vendas do varejo atingem topo histórico puxadas por farmácias e equipamentos
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              O Índice de Volume de Vendas cresceu 0,5% no último mês apurado e atingiu a marca mais alta de toda a série histórica do IBGE, sustentado por crédito pessoal estável e mercado de trabalho formal aquecido.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener" class="source-pill">Fonte: Agência Brasil ↗</a>
+          </div>
+        </div>
+
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-econ">Energia & Combustíveis</span>
+            <h4 class="card-title">
+              <a href="https://tradingeconomics.com" target="_blank" rel="noopener">
+                Petróleo Brent recua para US$ 92 por barril e alivia custos de frete internacional
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              A cotação do barril de petróleo cedeu 1,4% após aumento dos estoques comerciais nos Estados Unidos e sinalização de incremento gradual da produção por membros da OPEP+, amenizando pressões sobre o diesel e fretes.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://tradingeconomics.com" target="_blank" rel="noopener" class="source-pill">Fonte: Trading Economics ↗</a>
+          </div>
+        </div>
+
+        <div class="compact-card">
+          <div>
+            <span class="kicker-tag kicker-econ">Câmbio Internacional</span>
+            <h4 class="card-title">
+              <a href="https://reuters.com" target="_blank" rel="noopener">
+                Dólar segue fortalecido no exterior com indicadores consistentes nos EUA
+              </a>
+            </h4>
+            <p class="card-excerpt">
+              O índice DXY avançou 0,2%, refletindo a leitura de que o Federal Reserve manterá cautela na trajetória de corte dos juros norte-americanos após números firmes de criação de vagas e consumo das famílias.
+            </p>
+          </div>
+          <div class="card-footer">
+            <span class="read-time">⏱️ 2 min</span>
+            <a href="https://reuters.com" target="_blank" rel="noopener" class="source-pill">Fonte: Reuters ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SEÇÃO 4: CIÊNCIA, SAÚDE E QUALIDADE DE VIDA -->
+    <section class="news-section" id="saude">
+      <div class="section-header-box">
+        <h2 class="section-title">
+          <span>🔬 Ciência, Saúde & Longevidade</span>
+        </h2>
+        <span class="section-count">3 descobertas reais</span>
+      </div>
+
+      <div class="grid-3">
+        
+        <article class="card">
+          <div class="card-media">
+            <span class="media-badge">Diagnóstico Precoce</span>
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80" alt="Pesquisa Científica em Laboratório" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-science">Diagnóstico Neurológico</span>
+              <h4 class="card-title">
+                <a href="https://news.emory.edu" target="_blank" rel="noopener">
+                  Exame de sangue atinge 98% de precisão para diagnóstico precoce de ELA
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                Pesquisadores da Universidade Emory demonstraram em ensaios clínicos que um biomarcador baseado em vesículas extracelulares no sangue identifica a Esclerose Lateral Amiotrófica anos antes do surgimento dos sintomas clínicos motores debilitantes.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://news.emory.edu" target="_blank" rel="noopener" class="source-pill">Fonte: Emory University ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-science">Oncologia de Precisão</span>
+              <h4 class="card-title">
+                <a href="https://nature.com" target="_blank" rel="noopener">
+                  Identificado marcador no sangue para rastreio pré-canceroso de ovário
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                Estudo internacional publicado na Nature Medicine validou um painel de proteínas capaz de detectar lesões precursoras de câncer de ovário com sensibilidade sem precedentes, superando as limitações históricas do marcador CA-125 em estágios iniciais.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://nature.com" target="_blank" rel="noopener" class="source-pill">Fonte: Nature Medicine ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <div>
+              <span class="kicker-tag kicker-science">Imunoterapia Avançada</span>
+              <h4 class="card-title">
+                <a href="https://theguardian.com" target="_blank" rel="noopener">
+                  Terapia CAR-T recupera mobilidade em pacientes com Síndrome da Pessoa Rígida
+                </a>
+              </h4>
+              <p class="card-excerpt">
+                Equipes médicas da Mayo Clinic relataram remissão prolongada e recuperação substancial da marcha em pacientes com a rara condição autoimune após reprogramação de linfócitos T direcionados contra células B produtoras de autoanticorpos.
+              </p>
+            </div>
+            <div class="card-footer">
+              <span class="read-time">⏱️ 2 min</span>
+              <a href="https://theguardian.com" target="_blank" rel="noopener" class="source-pill">Fonte: Mayo Clinic / The Guardian ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: CAFÉ COM INGLÊS -->
+    <section class="news-section" id="cafe-ingles">
+      <div class="section-header-box">
+        <h2 class="section-title">
+          <span>☕ Café com Inglês</span>
+        </h2>
+        <span class="section-count">Expressão do Dia</span>
+      </div>
+
+      <div class="cafe-feature-box">
+        <div class="cafe-image-col">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Xícara de Café Espresso e Jornal" loading="lazy">
+        </div>
+        <div class="cafe-content-col">
+          <span class="cafe-tag">☕ Expressão da Semana</span>
+          <h3 class="cafe-term">"Cognitive Surrender"</h3>
+          <p class="cafe-def">
+            <strong>Origem e Significado:</strong> Termo destacado nesta semana por pesquisadores de engenharia de software da Anthropic para conceituar o perigo da <em>"rendição cognitiva"</em>. Trata-se do fenômeno em que desenvolvedores e profissionais do conhecimento transferem a totalidade do raciocínio e da execução de tarefas para assistentes e agentes de IA, deixando de compreender a arquitetura dos sistemas e perdendo a capacidade de depuração e supervisão crítica.
+          </p>
+          <div class="cafe-example-box">
+            <p><strong>Aplicação prática em contexto de tecnologia:</strong></p>
+            <p style="font-style: italic; margin-top: 4px; color: var(--border-dark);">
+              "AI agents can handle boilerplate code in seconds, but engineers must stay alert to avoid <strong>cognitive surrender</strong> during system design."
+            </p>
+            <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-light);">
+              (Agentes de IA podem gerar código padrão em segundos, mas os engenheiros devem ficar alertas para evitar a rendição cognitiva durante o design do sistema.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <span class="footer-homelab-pill">
+          <span class="homelab-dot"></span> Servido localmente no Homelab · ronaldo-C4400 (Porta 8088)
+        </span>
+      </div>
+      <p><strong>Coffee Brief</strong> · O jornal pessoal diário de Ronaldo Meira</p>
+      <p>Edição de 12 de novembro de 2026 · João Pessoa, Paraíba</p>
+      <p style="max-width: 680px; margin: 10px auto 0; font-size: 0.8rem; color: var(--text-light); line-height: 1.5;">
+        Curadoria autônoma baseada exclusivamente em fatos reais de fontes públicas verificadas nas últimas 24 horas. Conteúdo focado em tecnologia prática, negócios digitais, economia do dia a dia e ciência. Isento de viés político-partidário ou especulação de mercado.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
