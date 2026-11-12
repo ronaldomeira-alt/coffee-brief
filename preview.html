@@ -6,7 +6,7 @@
   <title>Coffee Brief · Quinta-feira, 12 de Novembro de 2026</title>
   <meta name="description" content="Coffee Brief: jornal digital diário de inteligência, tecnologia, negócios, economia e curiosidades para Ronaldo Meira.">
   
-  <!-- Google Fonts: Cormorant Garamond (títulos), Source Serif 4 (texto), Inter (metas/menus) -->
+  <!-- Google Fonts: Cormorant Garamond, Source Serif 4, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
@@ -20,11 +20,21 @@
     }
 
     :root {
+      /* Modo Claro (Paleta Monocle Original) */
       --bg: #FAF7F2;
       --text: #211D1A;
+      --text-muted: #6B635B;
+      --text-dim: #8A8177;
       --accent: #A93618;
       --border: #D8D0C7;
       --border-light: rgba(216, 208, 199, 0.65);
+      --card-bg: #FFFFFF;
+      --box-bg: #FAF5EE;
+      --box-border: #E4D8C8;
+      --quote-bg: #FAF7F2;
+      --quote-text: #38312C;
+      --ticker-bg: #FAF7F2;
+      --img-bg: #EFECE6;
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Source Serif 4', Georgia, serif;
@@ -32,6 +42,44 @@
 
       --radius-sm: 4px;
       --radius-md: 6px;
+    }
+
+    /* Modo Escuro Editorial (Warm Espresso & Charcoal) */
+    [data-theme="dark"] {
+      --bg: #141210;
+      --text: #EAE4DC;
+      --text-muted: #A69E94;
+      --text-dim: #7C746B;
+      --accent: #D9532F; /* Terracota luminoso para contraste impecável */
+      --border: #2C2621;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --card-bg: #1B1815;
+      --box-bg: #1F1B18;
+      --box-border: #3A322B;
+      --quote-bg: #171513;
+      --quote-text: #C7BFB5;
+      --ticker-bg: #181513;
+      --img-bg: #221F1C;
+    }
+
+    /* Suporte automático a preferência do sistema se não houver escolha manual */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141210;
+        --text: #EAE4DC;
+        --text-muted: #A69E94;
+        --text-dim: #7C746B;
+        --accent: #D9532F;
+        --border: #2C2621;
+        --border-light: rgba(255, 255, 255, 0.08);
+        --card-bg: #1B1815;
+        --box-bg: #1F1B18;
+        --box-border: #3A322B;
+        --quote-bg: #171513;
+        --quote-text: #C7BFB5;
+        --ticker-bg: #181513;
+        --img-bg: #221F1C;
+      }
     }
 
     html {
@@ -48,6 +96,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       padding-bottom: 90px;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     /* Container Centralizado para Leitura Nobre */
@@ -63,6 +112,7 @@
     .site-header {
       padding: 28px 0 16px;
       border-bottom: 1px solid var(--border);
+      transition: border-color 0.25s ease;
     }
 
     .header-main-row {
@@ -99,6 +149,7 @@
       stroke-width: 1.6;
       stroke-linecap: round;
       stroke-linejoin: round;
+      transition: stroke 0.25s ease;
     }
 
     .header-divider-v {
@@ -106,6 +157,7 @@
       height: 34px;
       background-color: var(--border);
       flex-shrink: 0;
+      transition: background-color 0.25s ease;
     }
 
     .brand-title {
@@ -121,19 +173,41 @@
     .header-right-meta {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     /* Apenas Data (Sem 'Edição 012') */
     .edition-date-only {
       text-align: right;
       font-family: var(--font-sans);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.35;
+    }
+
+    /* Botão Minimalista de Modo Escuro / Claro */
+    .theme-toggle-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text);
+      padding: 5px 10px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     .menu-burger-btn {
@@ -165,7 +239,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 9px 16px;
-      background-color: #FAF7F2;
+      background-color: var(--ticker-bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -173,6 +247,7 @@
       gap: 12px;
       font-family: var(--font-sans);
       font-size: 0.78rem;
+      transition: all 0.25s ease;
     }
 
     .ticker-cell {
@@ -193,12 +268,12 @@
     }
 
     .ticker-up {
-      color: #059669;
+      color: #10B981;
       font-weight: 600;
     }
 
     .ticker-down {
-      color: #DC2626;
+      color: #EF4444;
       font-weight: 600;
     }
 
@@ -226,7 +301,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #6B635B;
+      color: var(--text-muted);
       text-decoration: none;
       white-space: nowrap;
       transition: color 0.15s ease;
@@ -277,6 +352,7 @@
       flex-grow: 1;
       height: 1px;
       background-color: var(--border);
+      transition: background-color 0.25s ease;
     }
 
     /* ==========================================================================
@@ -291,8 +367,8 @@
       border-radius: var(--radius-md);
       overflow: hidden;
       margin-bottom: 22px;
-      background-color: #EFECE6;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      background-color: var(--img-bg);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
 
     .story-media img {
@@ -381,12 +457,13 @@
        5. CURIOSIDADES & BITS
        ========================================================================== */
     .curiosity-box {
-      background: #FAF5EE;
-      border: 1px solid #E4D8C8;
+      background: var(--box-bg);
+      border: 1px solid var(--box-border);
       border-left: 4px solid var(--accent);
       border-radius: var(--radius-sm);
       padding: 24px 26px;
       margin-bottom: 30px;
+      transition: all 0.25s ease;
     }
 
     .curiosity-kicker {
@@ -423,7 +500,7 @@
     .curiosity-foot {
       font-family: var(--font-sans);
       font-size: 0.78rem;
-      color: #6B635B;
+      color: var(--text-muted);
       font-weight: 600;
     }
 
@@ -431,12 +508,13 @@
        6. CAFÉ COM INGLÊS
        ========================================================================== */
     .english-card {
-      background: #FFFFFF;
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 30px 32px;
       margin-bottom: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
     }
 
     .english-tag {
@@ -461,7 +539,7 @@
     .english-phonetic {
       font-family: var(--font-sans);
       font-size: 0.85rem;
-      color: #6B635B;
+      color: var(--text-muted);
       margin-bottom: 16px;
     }
 
@@ -478,13 +556,13 @@
     }
 
     .english-quote-box {
-      background: #FAF7F2;
+      background: var(--quote-bg);
       border-left: 3px solid var(--accent);
       padding: 16px 20px;
       font-family: var(--font-body);
       font-size: 1rem;
       font-style: italic;
-      color: #38312C;
+      color: var(--quote-text);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       text-align: justify;
       text-justify: inter-word;
@@ -502,8 +580,9 @@
       text-align: center;
       font-family: var(--font-sans);
       font-size: 0.78rem;
-      color: #6B635B;
+      color: var(--text-muted);
       line-height: 1.6;
+      transition: border-color 0.25s ease;
     }
 
     .footer-stamp {
@@ -540,7 +619,7 @@
         font-size: 1.85rem;
       }
       .story-body {
-        font-size: 1.05rem; /* ~17px no mobile para leitura justificada impecável */
+        font-size: 1.05rem;
         line-height: 1.75;
       }
       .edition-date-only {
@@ -558,7 +637,7 @@
     <div class="container">
       <div class="header-main-row">
         
-        <!-- Logo e Marca (Sem a frase 'Ideias para começar o dia bem informado') -->
+        <!-- Logo e Marca -->
         <a href="#" class="brand-left">
           <div class="brand-cup-icon" aria-label="Xícara de café">
             <svg viewBox="0 0 24 24">
@@ -579,12 +658,15 @@
           </div>
         </a>
 
-        <!-- Apenas Data (Sem 'Edição 012') e Menu -->
+        <!-- Data, Botão de Tema e Menu -->
         <div class="header-right-meta">
           <div class="edition-date-only">
             <div>QUINTA-FEIRA,</div>
             <div>12 DE NOVEMBRO DE 2026</div>
           </div>
+          <button class="theme-toggle-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Alternar modo claro e escuro">
+            <span id="theme-icon">🌙</span> <span id="theme-label">ESCURO</span>
+          </button>
           <button class="menu-burger-btn" aria-label="Menu de editorias" onclick="document.querySelector('.quick-nav').scrollIntoView({behavior: 'smooth'})">
             <span class="burger-line"></span>
             <span class="burger-line"></span>
@@ -623,7 +705,7 @@
       <div class="ticker-cell">
         <strong>SAFRA BR</strong>
         <span class="ticker-val">367,2M ton</span>
-        <span class="ticker-up" style="color: #A93618;">★ Recorde</span>
+        <span class="ticker-up" style="color: var(--accent);">★ Recorde</span>
       </div>
     </div>
 
@@ -1333,11 +1415,53 @@
     <div class="container">
       <div class="footer-stamp">Coffee Brief</div>
       <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">João Pessoa, Paraíba · Servido localmente no Homelab (Porta 8088)</p>
-      <p style="max-width: 580px; margin: 0 auto; font-size: 0.72rem; color: #8A8177; line-height: 1.5;">
+      <p style="max-width: 580px; margin: 0 auto; font-size: 0.72rem; color: var(--text-dim); line-height: 1.5;">
         Curadoria jornalística autônoma realizada diariamente a partir de fontes primárias e verificadas nas últimas 24 horas. Isento de viés político-partidário e focado em inteligência prática para negócios e tecnologia.
       </p>
     </div>
   </footer>
+
+  <!-- ========================================================================
+       SCRIPT DO MODO ESCURO / CLARO
+       ======================================================================== -->
+  <script>
+    function getPreferredTheme() {
+      const saved = localStorage.getItem('cb_editorial_theme');
+      if (saved) return saved;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      if (theme === 'dark') {
+        icon.textContent = '☀️';
+        label.textContent = 'CLARO';
+      } else {
+        icon.textContent = '🌙';
+        label.textContent = 'ESCURO';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('cb_editorial_theme', next);
+      applyTheme(next);
+    }
+
+    // Inicialização ao carregar
+    const initialTheme = getPreferredTheme();
+    applyTheme(initialTheme);
+
+    // Ouvir alterações na preferência do sistema operacional caso o usuário não tenha forçado manualmente
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('cb_editorial_theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  </script>
 
 </body>
 </html>
