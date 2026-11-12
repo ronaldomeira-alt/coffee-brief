@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Coffee Brief // Edição 012 · Quinta, 12 de Novembro de 2026</title>
+  <title>Coffee Brief · Quinta-feira, 12 de Novembro de 2026</title>
   <meta name="description" content="Coffee Brief: jornal digital diário de inteligência, tecnologia, negócios, economia e curiosidades para Ronaldo Meira.">
   
-  <!-- Google Fonts: Cormorant Garamond, Inter, Source Serif 4 -->
+  <!-- Google Fonts: Cormorant Garamond (títulos), Source Serif 4 (texto), Inter (metas/menus) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Reset & Editorial Variables */
+    /* CSS Reset & Variáveis Editoriais */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -24,16 +24,14 @@
       --text: #211D1A;
       --accent: #A93618;
       --border: #D8D0C7;
-      --border-light: rgba(216, 208, 199, 0.6);
-      --surface-card: #FFFFFF;
+      --border-light: rgba(216, 208, 199, 0.65);
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Source Serif 4', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
       --radius-sm: 4px;
       --radius-md: 6px;
-      --radius-lg: 8px;
     }
 
     html {
@@ -45,25 +43,25 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-body);
-      font-size: 17.5px;
-      line-height: 1.75;
+      font-size: 18px;
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      padding-bottom: 80px;
+      padding-bottom: 90px;
     }
 
-    /* Container Centralizado com Largura Editorial Ótima */
+    /* Container Centralizado para Leitura Nobre */
     .container {
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 22px;
     }
 
     /* ==========================================================================
-       1. CABEÇALHO EDITORIAL (Exatamente como a referência aprovada)
+       1. CABEÇALHO EDITORIAL
        ========================================================================== */
     .site-header {
-      padding: 26px 0 16px;
+      padding: 28px 0 16px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -77,15 +75,15 @@
     .brand-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       text-decoration: none;
       color: inherit;
     }
 
     /* Ícone Minimalista de Xícara a Vapor em Terracota */
     .brand-cup-icon {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -105,28 +103,19 @@
 
     .header-divider-v {
       width: 1px;
-      height: 38px;
+      height: 34px;
       background-color: var(--border);
       flex-shrink: 0;
     }
 
-    .brand-headings h1 {
+    .brand-title {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-size: clamp(1.85rem, 4.2vw, 2.45rem);
       font-weight: 700;
-      letter-spacing: 0.04em;
-      line-height: 1.05;
+      letter-spacing: 0.05em;
+      line-height: 1;
       text-transform: uppercase;
       color: var(--text);
-    }
-
-    .brand-headings p {
-      font-family: var(--font-display);
-      font-size: 1.02rem;
-      font-style: italic;
-      color: var(--text);
-      margin-top: 3px;
-      letter-spacing: 0.01em;
     }
 
     .header-right-meta {
@@ -135,20 +124,21 @@
       gap: 14px;
     }
 
-    .edition-info {
+    /* Apenas Data (Sem 'Edição 012') */
+    .edition-date-only {
       text-align: right;
       font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text);
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .menu-burger-btn {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       background: none;
       border: none;
       cursor: pointer;
@@ -168,13 +158,13 @@
     }
 
     /* ==========================================================================
-       2. FAIXA DE INDICADORES ECONÔMICOS (Faixa Horizontal Sofisticada)
+       2. FAIXA DE INDICADORES ECONÔMICOS
        ========================================================================== */
     .ticker-strip {
       margin: 16px 0 28px;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 10px 16px;
+      padding: 9px 16px;
       background-color: #FAF7F2;
       display: flex;
       justify-content: space-between;
@@ -218,7 +208,7 @@
       background-color: var(--border);
     }
 
-    /* Menu de Navegação Rápido pelas Editorias (Opcional, Discreto) */
+    /* Navegação rápida discreta */
     .quick-nav {
       display: flex;
       gap: 14px;
@@ -256,7 +246,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .section-num {
@@ -290,19 +280,19 @@
     }
 
     /* ==========================================================================
-       4. MATÉRIA EDITORIAL (Apresentação completa das notícias)
+       4. MATÉRIA EDITORIAL (Hierarquia Forte & Texto Justificado)
        ========================================================================== */
     .story-card {
-      margin-bottom: 52px;
+      margin-bottom: 58px;
     }
 
     .story-media {
       width: 100%;
       border-radius: var(--radius-md);
       overflow: hidden;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       background-color: #EFECE6;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .story-media img {
@@ -311,24 +301,25 @@
       aspect-ratio: 16 / 9.2;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
     }
 
-    /* Manchete Destaque com Barra Vertical Terracota */
+    /* Manchete com Hierarquia Tipográfica Expressiva */
     .headline-wrap {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
+    /* Barra vertical terracota na manchete de destaque */
     .headline-destaque {
-      border-left: 4px solid var(--accent);
-      padding-left: 14px;
+      border-left: 4.5px solid var(--accent);
+      padding-left: 16px;
+      margin-left: -2px;
     }
 
     .story-title {
       font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3.8vw, 2.35rem);
+      font-size: clamp(2rem, 4.4vw, 2.75rem);
       font-weight: 700;
-      line-height: 1.18;
+      line-height: 1.15;
       letter-spacing: -0.015em;
       color: var(--text);
     }
@@ -343,26 +334,36 @@
       color: var(--accent);
     }
 
+    /* Texto das matérias: RIGOROSAMENTE JUSTIFICADO */
     .story-body {
       font-family: var(--font-body);
-      font-size: 1.08rem;
-      line-height: 1.76;
+      font-size: 1.125rem; /* 18px */
+      line-height: 1.82;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
 
     .story-body p {
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
 
     .story-source-row {
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .source-link {
-      font-family: var(--font-body);
-      font-size: 0.96rem;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
       font-weight: 600;
+      letter-spacing: 0.02em;
       color: var(--accent);
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -373,76 +374,84 @@
     }
 
     .source-link:hover {
-      opacity: 0.82;
+      opacity: 0.8;
     }
 
-    /* Curiosidades & Bits */
+    /* ==========================================================================
+       5. CURIOSIDADES & BITS
+       ========================================================================== */
     .curiosity-box {
       background: #FAF5EE;
       border: 1px solid #E4D8C8;
       border-left: 4px solid var(--accent);
       border-radius: var(--radius-sm);
-      padding: 22px 24px;
+      padding: 24px 26px;
       margin-bottom: 30px;
     }
 
     .curiosity-kicker {
       font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .curiosity-headline {
       font-family: var(--font-display);
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 700;
       line-height: 1.25;
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .curiosity-desc {
       font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 1.05rem;
+      line-height: 1.76;
       color: var(--text);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
 
     .curiosity-foot {
       font-family: var(--font-sans);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       color: #6B635B;
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* Café com Inglês Editorial Box */
+    /* ==========================================================================
+       6. CAFÉ COM INGLÊS
+       ========================================================================== */
     .english-card {
       background: #FFFFFF;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 28px 30px;
+      padding: 30px 32px;
       margin-bottom: 40px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     .english-tag {
       font-family: var(--font-sans);
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .english-term {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 2.35rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.15;
@@ -458,24 +467,34 @@
 
     .english-meaning {
       font-family: var(--font-body);
-      font-size: 1.05rem;
-      line-height: 1.72;
+      font-size: 1.08rem;
+      line-height: 1.76;
       color: var(--text);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
 
     .english-quote-box {
       background: #FAF7F2;
       border-left: 3px solid var(--accent);
-      padding: 14px 18px;
+      padding: 16px 20px;
       font-family: var(--font-body);
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-style: italic;
       color: #38312C;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
 
-    /* Rodapé Monocle Style */
+    /* ==========================================================================
+       7. RODAPÉ EDITORIAL
+       ========================================================================== */
     .site-footer {
       border-top: 1px solid var(--border);
       margin-top: 60px;
@@ -497,16 +516,13 @@
       margin-bottom: 8px;
     }
 
-    /* Mobile First Adjustments */
+    /* Responsividade Mobile */
     @media (max-width: 600px) {
       .container {
-        padding: 0 16px;
+        padding: 0 18px;
       }
-      .brand-headings h1 {
-        font-size: 1.7rem;
-      }
-      .brand-headings p {
-        font-size: 0.88rem;
+      .brand-title {
+        font-size: 1.75rem;
       }
       .brand-cup-icon {
         width: 36px;
@@ -521,14 +537,14 @@
         display: none;
       }
       .story-title {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
       }
       .story-body {
-        font-size: 1.02rem;
-        line-height: 1.72;
+        font-size: 1.05rem; /* ~17px no mobile para leitura justificada impecável */
+        line-height: 1.75;
       }
-      .edition-info {
-        font-size: 0.65rem;
+      .edition-date-only {
+        font-size: 0.68rem;
       }
     }
   </style>
@@ -542,7 +558,7 @@
     <div class="container">
       <div class="header-main-row">
         
-        <!-- Logo e Título com Ícone de Xícara -->
+        <!-- Logo e Marca (Sem a frase 'Ideias para começar o dia bem informado') -->
         <a href="#" class="brand-left">
           <div class="brand-cup-icon" aria-label="Xícara de café">
             <svg viewBox="0 0 24 24">
@@ -559,15 +575,14 @@
           </div>
           <div class="header-divider-v"></div>
           <div class="brand-headings">
-            <h1>COFFEE BRIEF</h1>
-            <p>Ideias para começar o dia bem informado.</p>
+            <h1 class="brand-title">COFFEE BRIEF</h1>
           </div>
         </a>
 
-        <!-- Edição, Data e Menu -->
+        <!-- Apenas Data (Sem 'Edição 012') e Menu -->
         <div class="header-right-meta">
-          <div class="edition-info">
-            <div>EDIÇÃO 012 · QUINTA,</div>
+          <div class="edition-date-only">
+            <div>QUINTA-FEIRA,</div>
             <div>12 DE NOVEMBRO DE 2026</div>
           </div>
           <button class="menu-burger-btn" aria-label="Menu de editorias" onclick="document.querySelector('.quick-nav').scrollIntoView({behavior: 'smooth'})">
@@ -1316,10 +1331,9 @@
        ======================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-stamp">Coffee Brief · Edição 012</div>
-      <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Ideias para começar o dia bem informado · Ronaldo Meira</p>
-      <p style="margin-bottom: 12px;">João Pessoa, Paraíba · Servido localmente no Homelab (Porta 8088)</p>
-      <p style="max-width: 600px; margin: 0 auto; font-size: 0.72rem; color: #8A8177; line-height: 1.5;">
+      <div class="footer-stamp">Coffee Brief</div>
+      <p style="font-weight: 600; color: var(--text); margin-bottom: 4px;">João Pessoa, Paraíba · Servido localmente no Homelab (Porta 8088)</p>
+      <p style="max-width: 580px; margin: 0 auto; font-size: 0.72rem; color: #8A8177; line-height: 1.5;">
         Curadoria jornalística autônoma realizada diariamente a partir de fontes primárias e verificadas nas últimas 24 horas. Isento de viés político-partidário e focado em inteligência prática para negócios e tecnologia.
       </p>
     </div>
