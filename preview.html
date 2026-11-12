@@ -133,8 +133,8 @@
 
     /* Ícone Minimalista de Xícara a Vapor em Terracota */
     .brand-cup-icon {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -155,7 +155,7 @@
 
     .header-divider-v {
       width: 1px;
-      height: 34px;
+      height: 40px;
       background-color: var(--border);
       flex-shrink: 0;
       transition: background-color 0.25s ease;
@@ -163,9 +163,9 @@
 
     .brand-title {
       font-family: var(--font-display);
-      font-size: clamp(1.85rem, 4.2vw, 2.45rem);
+      font-size: clamp(2.2rem, 5.8vw, 3.25rem);
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.025em;
       line-height: 1;
       text-transform: uppercase;
       color: var(--text);
@@ -175,18 +175,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-
-    /* Apenas Data (Sem 'Edição 012') */
-    .edition-date-only {
-      text-align: right;
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.35;
     }
 
     /* Botão Minimalista de Modo Escuro / Claro */
@@ -603,11 +591,15 @@
         padding: 0 18px;
       }
       .brand-title {
-        font-size: 1.75rem;
+        font-size: 2.15rem;
+        letter-spacing: -0.02em;
       }
       .brand-cup-icon {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
+      }
+      .header-divider-v {
+        height: 34px;
       }
       .ticker-strip {
         font-size: 0.72rem;
@@ -623,9 +615,6 @@
       .story-body {
         font-size: 1.05rem;
         line-height: 1.75;
-      }
-      .edition-date-only {
-        font-size: 0.68rem;
       }
     }
   </style>
@@ -660,12 +649,8 @@
           </div>
         </a>
 
-        <!-- Data, Botão de Tema e Menu -->
+        <!-- Botão de Tema e Menu -->
         <div class="header-right-meta">
-          <div class="edition-date-only">
-            <div>QUINTA-FEIRA,</div>
-            <div>12 DE NOVEMBRO DE 2026</div>
-          </div>
           <button class="theme-toggle-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Alternar modo claro e escuro">
             <span id="theme-icon">🌙</span> <span id="theme-label">ESCURO</span>
           </button>
