@@ -1,24 +1,430 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Saúde do Homelab</title><style>*{box-sizing:border-box}body{background:#000;color:#fff;margin:0;font:16px/1.5 -apple-system,BlinkMacSystemFont,Inter,system-ui,sans-serif}main{max-width:900px;margin:auto;padding:48px 28px}header small,.eyebrow{color:#a1a1aa;text-transform:uppercase;letter-spacing:.08em;font-size:12px}h1{font-size:clamp(38px,6vw,60px);line-height:1.05;margin:12px 0}h2{font-size:25px;letter-spacing:-.025em;margin:0 0 24px}h3{font-size:18px;margin:0 0 8px}p{margin:8px 0}.muted,small{color:#a1a1aa}section{border-top:1px solid #27272a;padding:38px 0}.intro{padding:30px 0 42px}.alert{color:#fca5a5}.amber{color:#fcd083}.ok{color:#86efac}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 24px}.number{font-size:clamp(28px,5vw,42px);font-weight:650;letter-spacing:-.04em;line-height:1.25}.metric span{display:block}svg{margin:20px 0 32px;border-top:1px dashed #27272a;border-bottom:1px dashed #27272a}.graph{height:118px;margin:20px 0 32px;display:grid;place-items:center;border-top:1px dashed #27272a;border-bottom:1px dashed #27272a;color:#a1a1aa;font-size:14px}.row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #18181b}.row:last-child{border:0}.row b{font-size:14px;text-align:right}.notice{font-size:13px;color:#a1a1aa}.bar{height:3px;background:#27272a;margin-top:10px}.bar i{display:block;background:#60a5fa;height:100%}footer{padding:24px 0;color:#a1a1aa;font-size:13px}@media(max-width:480px){main{padding:35px 22px}section{padding:30px 0}.number{font-size:27px}}</style></head><body><main>
-<header><small>HOMELAB / ZELADOR</small><h1>Saúde do servidor</h1><p class="muted">Inspeção contínua · 12 de novembro de 2026, 23h20 · Horário de Fortaleza</p></header>
-<div class="intro"><p class="eyebrow">Diagnóstico do dia</p><h2 class="alert">△ Backup requer verificação</h2><p>O último backup íntegro ainda não foi confirmado. A última rotina registrada terminou com falha; é necessário investigar antes de concluir que existe uma cópia recuperável.</p></div>
-<section><h2>Indicadores principais</h2><div class="grid">
-<div class="metric"><span class="muted">Uso de CPU · média</span><span class="number">Coletando</span><small>Coleta contínua a cada 10 min</small></div>
-<div class="metric"><span class="muted">RAM em uso</span><span class="number">3803 MB</span><small>Última leitura do Netdata</small></div>
-<div class="metric"><span class="muted">Temperatura do processador</span><span class="number">51,6 °C</span><small>Última leitura · alerta a partir de 80 °C</small></div>
-<div class="metric"><span class="muted">Disco usado</span><span class="number">18%</span><small>182G livres</small></div>
-</div></section>
-<section><h2>Histórico de desempenho</h2>
-<h3>Uso do processador</h3><p class="muted">Coleta contínua iniciada; aguardando janela de 24 h</p><div class="graph">Histórico insuficiente</div>
-<h3>Memória RAM</h3><p class="muted">Coleta contínua iniciada; aguardando janela de 24 h</p><div class="graph">Histórico insuficiente</div>
-<h3>Temperatura do processador</h3><p class="muted">Coleta contínua iniciada; aguardando janela de 24 h</p><div class="graph">Histórico insuficiente</div>
-</section>
-<section><h2>Serviços essenciais</h2><div class="row"><span>OpenBot</span><b class="ok">Serviço ativo</b></div><div class="row"><span>Docker</span><b class="ok">Motor ativo</b></div><div class="row"><span>Netdata (monitoramento privado)</span><b class="ok">Ativo · somente localhost</b></div><div class="row"><span>Backup</span><b class="amber">Última execução com falha</b></div><div class="row"><span>Internet</span><b class="ok">Teste pontual: 0% de perda</b></div></section>
-<section><h2>Temperaturas</h2><div class="grid">
-<div><span class="muted">Processador</span><div class="number">51,6 °C</div><div class="bar"><i style="width:64%"></i></div></div>
-<div><span class="muted">SSD</span><div class="number">56,9 °C</div><div class="bar"><i style="width:71%"></i></div></div>
-</div><p class="notice">Barras em escala até 80 °C (limite de alerta). Fonte: sensores lidos pelo Netdata.</p></section>
-<section><h2>Análise do zelador</h2>
-<p>O Netdata Agent coleta a cada 1 segundo e o zelador registra o histórico a cada 10 minutos; o painel dele fica restrito ao próprio servidor (somente localhost). Análise via MCP confirmada: 0 alertas ativos, 6 contêineres Docker saudáveis, SSD com 18% de uso e todas as temperaturas abaixo de 57 °C. Esta página é gerada a partir do mesmo histórico e atualizada diariamente.</p>
-<p class="muted">Leituras contínuas desde 2026-11-12 22:48 · 19 leituras no histórico.</p>
-</section>
-<footer>Dados públicos resumidos · Coleta privada no servidor · Não é monitoramento em tempo real</footer></main></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Homelab Dashboard Executivo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      padding: 32px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    /* Topbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #1f1f23;
+      margin-bottom: 32px;
+    }
+    .header-left h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+    .header-left p {
+      font-size: 13px;
+      color: #a1a1aa;
+      margin-top: 4px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    /* Status Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .badge-green {
+      background: rgba(34, 197, 94, 0.12);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .badge-red {
+      background: rgba(239, 68, 68, 0.12);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-green { background: #22c55e; box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); }
+    .dot-red { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #71717a;
+      margin: 32px 0 16px 0;
+    }
+
+    /* Card Grid */
+    .grid-kpi {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .grid-kpi { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .grid-kpi { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: #0f0f12;
+      border: 1px solid #1e1e24;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .card:hover {
+      border-color: #2e2e38;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .card-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #a1a1aa;
+    }
+    .card-value {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .card-subtext {
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    /* Grid 2 Columns */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+
+    /* List Rows */
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #19191e;
+    }
+    .service-row:last-child {
+      border-bottom: none;
+    }
+    .service-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .service-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .service-desc {
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    /* Sparkline & Charts in Cards */
+    .chart-container {
+      margin-top: 16px;
+      border-top: 1px solid #19191e;
+      padding-top: 12px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #71717a;
+      margin-bottom: 8px;
+    }
+
+    /* Temperature Bars */
+    .temp-item {
+      margin-bottom: 14px;
+    }
+    .temp-item:last-child {
+      margin-bottom: 0;
+    }
+    .temp-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .temp-header span:first-child { color: #a1a1aa; }
+    .temp-header span:last-child { color: #ffffff; font-weight: 600; }
+    .bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #19191e;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: #22c55e;
+    }
+
+    /* Executive Notes */
+    .exec-note {
+      background: #0f0f12;
+      border: 1px solid #1e1e24;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+    .exec-note p {
+      font-size: 14px;
+      color: #d4d4d8;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .exec-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #19191e;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #52525b;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>Homelab · Painel Executivo</h1>
+        <p>ronaldo-C4400 · Atualizado em 12/11/2026 às 23h54 (Fortaleza)</p>
+      </div>
+      <div class="header-right">
+        <span class="badge badge-green"><span class="dot dot-green"></span>Sistemas Operacionais</span>
+      </div>
+    </header>
+
+    <div class="section-title">Visão Geral dos Indicadores</div>
+    <div class="grid-kpi">
+      <!-- CPU -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">CPU (Uso Atual)</span>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Normal</span>
+        </div>
+        <div class="card-value">3,9 %</div>
+        <div class="card-subtext">Média 10m: 2,6 % · 12 threads</div>
+      </div>
+
+      <!-- RAM -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">Memória RAM</span>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Normal</span>
+        </div>
+        <div class="card-value">3,7 GB</div>
+        <div class="card-subtext">Total 14,5 GB · Cache ativo</div>
+      </div>
+
+      <!-- TEMPERATURA -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">Temp. Processador</span>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Normal</span>
+        </div>
+        <div class="card-value">52,3 °C</div>
+        <div class="card-subtext">Limite de alerta: 80,0 °C</div>
+      </div>
+
+      <!-- DISCO -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">Armazenamento SSD</span>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Normal</span>
+        </div>
+        <div class="card-value">19%</div>
+        <div class="card-subtext">179G livres na partição raiz</div>
+      </div>
+    </div>
+
+    <div class="grid-2col" style="margin-top: 20px;">
+      <!-- Serviços Críticos -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">Infraestrutura & Serviços</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">OpenBot Agent</span>
+            <span class="service-desc">Agente de automação 24/7</span>
+          </div>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Ativo</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Docker Engine</span>
+            <span class="service-desc">6 contêineres Coolify operacionais</span>
+          </div>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Ativo</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Netdata Agent</span>
+            <span class="service-desc">Monitoramento privado localhost</span>
+          </div>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Ativo</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Conectividade Internet</span>
+            <span class="service-desc">Ping 1.1.1.1 / 8.8.8.8</span>
+          </div>
+          <span class="badge badge-green"><span class="dot dot-green"></span>0% perda</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-info">
+            <span class="service-name">Homelab Backup (Restic)</span>
+            <span class="service-desc">Snapshot íntegro verificado · Lock liberado</span>
+          </div>
+          <span class="badge badge-green"><span class="dot dot-green"></span>Íntegro</span>
+        </div>
+      </div>
+
+      <!-- Sensores Térmicos -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-label">Monitoramento Térmico (Hardware)</span>
+        </div>
+
+        <div class="temp-item" style="margin-top: 8px;">
+          <div class="temp-header">
+            <span>Processador (CPU)</span>
+            <span>52,3 °C</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 65.4%;"></div>
+          </div>
+        </div>
+
+        <div class="temp-item">
+          <div class="temp-header">
+            <span>SSD NVMe Principal</span>
+            <span>56,9 °C</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 71.1%;"></div>
+          </div>
+        </div>
+
+        <div class="temp-item">
+          <div class="temp-header">
+            <span>GPU Integrada</span>
+            <span>47,0 °C</span>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill" style="width: 58.8%;"></div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 14px; border-top: 1px solid #19191e; font-size: 12px; color: #71717a;">
+          Escala de referência até 80 °C. Nenhum componente operando próximo ao limite térmico.
+        </div>
+      </div>
+    </div>
+
+    <!-- Histórico de Tendências Sparklines -->
+    <div class="section-title">Histórico de Desempenho (Coleta Contínua)</div>
+    <div class="card">
+      <div class="chart-container" style="margin-top: 0; border-top: none; padding-top: 0;">
+        <div class="chart-header">
+          <span style="color: #ffffff; font-weight: 500;">Uso do Processador</span>
+          <span>Média 2,6 % · Pico 3,9 %</span>
+        </div>
+        <svg viewBox="0 0 600 70" preserveAspectRatio="none" width="100%" height="70" style="display:block"><polyline fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0.0,55.3 28.6,33.4 57.1,55.9 85.7,42.6 114.3,31.4 142.9,48.7 171.4,44.7 200.0,49.0 228.6,52.5 257.1,63.1 285.7,33.7 314.3,54.8 342.9,64.0 371.4,37.5 400.0,46.1 428.6,41.8 457.1,11.5 485.7,44.1 514.3,24.2 542.9,40.3 571.4,45.5 600.0,6.0"/></svg>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <span style="color: #ffffff; font-weight: 500;">Memória RAM Utilizada</span>
+          <span>Média 3838 MB · Pico 3938 MB</span>
+        </div>
+        <svg viewBox="0 0 600 70" preserveAspectRatio="none" width="100%" height="70" style="display:block"><polyline fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0.0,6.0 28.6,12.7 57.1,14.8 85.7,15.2 114.3,14.2 142.9,13.1 171.4,18.5 200.0,19.6 228.6,16.8 257.1,15.2 285.7,11.4 314.3,15.5 342.9,18.3 371.4,37.0 400.0,31.5 428.6,23.9 457.1,33.4 485.7,35.0 514.3,31.4 542.9,59.9 571.4,64.0 600.0,38.7"/></svg>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <span style="color: #ffffff; font-weight: 500;">Temperatura da CPU</span>
+          <span>Média 52,3 °C · Pico 55,0 °C</span>
+        </div>
+        <svg viewBox="0 0 600 70" preserveAspectRatio="none" width="100%" height="70" style="display:block"><polyline fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0.0,6.0 28.6,29.2 57.1,53.8 85.7,58.2 114.3,53.8 142.9,20.5 171.4,48.0 200.0,49.5 228.6,35.0 257.1,55.3 285.7,53.8 314.3,32.1 342.9,55.3 371.4,56.8 400.0,51.0 428.6,58.2 457.1,51.0 485.7,64.0 514.3,55.3 542.9,13.2 571.4,42.2 600.0,45.2"/></svg>
+      </div>
+    </div>
+
+    <!-- Notas do Zelador -->
+    <div class="exec-note">
+      <p><strong>Relatório Operacional do Zelador:</strong> Auditoria via MCP Netdata e comandos do sistema confirmam operação saudável do Homelab. O travamento do backup no Google Drive foi liberado via <code>restic unlock</code> e o parâmetro <code>--retry-lock 300</code> foi aplicado ao script. O teste real de restauração concluiu com êxito (3,4 GB / 24.720 arquivos validados). 6 contêineres Docker saudáveis e 0 alertas críticos ativos.</p>
+    </div>
+
+    <footer>
+      <span>Zelador do Homelab · ronaldo-C4400</span>
+      <span>Cadência do coletor: 10 minutos · Dashboard público executivo</span>
+    </footer>
+  </div>
+</body>
+</html>
