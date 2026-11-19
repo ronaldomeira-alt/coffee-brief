@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#07111e"><title>Agenda de Futebol — Jogos de Hoje e Programação</title><meta name="description" content="Jogos de futebol masculino: partidas de hoje e programação com horários e transmissões."><style>
+:root{color-scheme:dark;--bg:#07111e;--panel:#0d1a2b;--line:#25364b;--text:#f5f8fc;--muted:#9eacc0;--lime:#b5f36d;--blue:#81a9ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#223f65 0,transparent 48%),linear-gradient(180deg,#081321,#06101c 70%);color:var(--text);font:16px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{width:min(880px,100% - 34px);margin:0 auto;padding:50px 0 56px}
+.head{text-align:center;margin-bottom:36px}
+.brand{display:inline-flex;align-items:center;gap:8px;font-weight:850;letter-spacing:.17em;text-transform:uppercase;font-size:.72rem;color:var(--lime);border:1px solid #4d713c;background:#18291e;padding:8px 14px;border-radius:999px}
+h1{font-size:clamp(2.3rem,7vw,4.3rem);letter-spacing:-.055em;line-height:1.02;margin:18px 0 8px}
+.sub{color:#aab8cc;margin:0;font-size:1.02rem}
+.day{display:flex;width:max-content;max-width:100%;align-items:center;justify-content:center;gap:9px;margin:20px auto 0;border:1px solid #2d4360;background:#102139;padding:9px 16px;border-radius:999px;color:#e5edfa;font-weight:750;font-size:.84rem;letter-spacing:.05em}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:28px 2px 14px}
+.section-head:first-of-type{margin-top:0}
+.section-title{color:#eef3fb;font-size:.86rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+.count{color:#9babc0;font-size:.79rem}
+.list{display:grid;gap:13px}
+.card{position:relative;background:linear-gradient(115deg,#fff 0%,#f3f6fa 72%,#e6ebf3 100%);border:1px solid #fff;color:#111d2c;border-radius:19px;overflow:hidden;box-shadow:0 14px 34px #0003;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 18px 42px #0005}
+.card-highlight{border:2px solid #eab308;box-shadow:0 14px 34px #eab30833}
+.highlight-badge{background:#eab308;color:#000;font-weight:900;font-size:.65rem;padding:3px 8px;border-radius:999px;margin-left:8px;letter-spacing:.05em}
+.bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#c0f577,#43b878,#335db2)}
+.card-highlight .bar{background:linear-gradient(180deg,#fbbf24,#f59e0b,#d97706)}
+.info{display:flex;justify-content:center;align-items:center;gap:12px;padding:16px 18px 4px 23px;text-align:center}
+.league{font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#49617d}
+.teams{display:grid;grid-template-columns:1fr 34px 1fr;align-items:center;gap:10px;padding:12px 18px 16px 23px}
+.team{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.crest{width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 5px 10px #0000001f);display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.vs{color:#76879d;font-weight:900;font-size:.82rem;letter-spacing:.09em;text-align:center}
+.name{font-weight:800;font-size:1.17rem;line-height:1.1;letter-spacing:-.025em;text-align:center}
+.watch{position:relative;isolation:isolate;display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:46px;gap:0;overflow:hidden;border:0;border-radius:0 0 18px 18px;padding:7px 18px;background:linear-gradient(112deg,#10243d 0%,#173e72 54%,#11265a 100%);color:#fff;font-size:.88rem}
+.watch:before{content:"";position:absolute;z-index:-1;top:-35%;bottom:-35%;left:50%;width:2px;transform:rotate(29deg);background:linear-gradient(180deg,transparent,#7fc5ff 18%,#fff 50%,#7fc5ff 82%,transparent);box-shadow:0 0 12px #52aaffaa}
+.watch-channel,.watch-time{display:flex;align-items:center;gap:10px;min-width:0}
+.watch-channel{justify-content:center;padding-right:16px}
+.watch-time{justify-content:center;padding-left:16px}
+.watch-channel strong,.watch-time strong{color:#fff;font-weight:850;line-height:1.2}
+.watch-time strong{font-size:.98rem;font-variant-numeric:tabular-nums;letter-spacing:.025em;white-space:nowrap}
+.watch-time>svg{width:19px;height:19px;flex:none;fill:none;stroke:#cfe4ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tvicon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:6px;background:#ffffff15;flex:none}
+.tvicon>svg{width:14px;height:14px;fill:none;stroke:#93c5fd;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer{text-align:center;margin-top:42px;color:var(--muted);font-size:.82rem;line-height:1.6}
+.sources{text-align:center;margin-top:10px;color:#7d8c9f;font-size:.76rem}
+.sources a{color:#93c5fd;text-decoration:none}
+.sources a:hover{text-decoration:underline}
+@media(max-width:560px){
+  .wrap{width:calc(100% - 20px);padding:32px 0 40px}
+  .teams{grid-template-columns:1fr 28px 1fr;gap:5px;padding:8px 12px 12px 16px}
+  .team{gap:5px}
+  .crest{width:55px;height:55px;font-size:1.9rem}
+  .name{font-size:.95rem}
+  .vs{font-size:.72rem}
+  .watch{min-height:42px;padding:6px 9px;font-size:.76rem;border-radius:0 0 14px 14px}
+  .watch-channel,.watch-time{gap:7px}
+  .watch-channel{padding-right:10px}
+  .watch-time{padding-left:10px}
+  .watch-time>svg{width:17px;height:17px}
+  .watch-time strong{font-size:.84rem}
+  .tvicon{width:20px;height:20px}
+  .tvicon>svg{width:12px;height:12px}
+}
+</style></head>
+<body><main class="wrap"><header class="head"><div class="brand">⚽ Guia da rodada</div><h1>Jogos de hoje</h1><p class="sub">Futebol masculino e destaques · partidas do dia, horários e onde assistir</p><div class="day">QUINTA-FEIRA · 19 DE NOVEMBRO DE 2026</div></header>
+
+<div class="section-head"><div class="section-title">Agenda de Hoje (Quinta-feira · 19/11) · Brasileirão Série A & Amistosos</div><div class="count">4 partidas · horário de Brasília</div></div>
+<section class="list" aria-label="Partidas de quinta-feira"><article class="card">
+<div class="bar"></div>
+<div class="info"><span class="league">Campeonato Brasileiro · Série A</span></div>
+<div class="teams">
+<div class="team"><img class="crest" src="assets/vasco-da-gama.png" alt="Escudo Vasco da Gama" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">Vasco da Gama</span></div>
+<span class="vs">VS</span>
+<div class="team"><img class="crest" src="assets/internacional.png" alt="Escudo Internacional" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">Internacional</span></div>
+</div>
+<div class="watch">
+<span class="watch-channel"><span class="tvicon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m8 21 4-3 4 3"/></svg></span><strong>SporTV / Premiere</strong></span>
+<span class="watch-time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><strong>19:30</strong></span>
+</div>
+</article>
+<article class="card">
+<div class="bar"></div>
+<div class="info"><span class="league">Campeonato Brasileiro · Série A</span></div>
+<div class="teams">
+<div class="team"><img class="crest" src="assets/vitoria.png" alt="Escudo Vitória" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">Vitória</span></div>
+<span class="vs">VS</span>
+<div class="team"><img class="crest" src="assets/red-bull-bragantino.png" alt="Escudo Red Bull Bragantino" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">Red Bull Bragantino</span></div>
+</div>
+<div class="watch">
+<span class="watch-channel"><span class="tvicon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m8 21 4-3 4 3"/></svg></span><strong>Premiere</strong></span>
+<span class="watch-time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><strong>19:30</strong></span>
+</div>
+</article>
+<article class="card">
+<div class="bar"></div>
+<div class="info"><span class="league">Campeonato Brasileiro · Série A</span></div>
+<div class="teams">
+<div class="team"><img class="crest" src="assets/sao-paulo.png" alt="Escudo São Paulo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">São Paulo</span></div>
+<span class="vs">VS</span>
+<div class="team"><img class="crest" src="assets/fluminense.png" alt="Escudo Fluminense" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">Fluminense</span></div>
+</div>
+<div class="watch">
+<span class="watch-channel"><span class="tvicon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m8 21 4-3 4 3"/></svg></span><strong>Premiere / Ge TV / TV Globo</strong></span>
+<span class="watch-time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><strong>21:30</strong></span>
+</div>
+</article>
+<article class="card">
+<div class="bar"></div>
+<div class="info"><span class="league">Amistoso Internacional</span></div>
+<div class="teams">
+<div class="team"><img class="crest" src="assets/ifk-norrkoping.png" alt="Escudo IFK Norrköping" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">IFK Norrköping</span></div>
+<span class="vs">VS</span>
+<div class="team"><img class="crest" src="assets/kups-kuopio.png" alt="Escudo KuPS Kuopio" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'crest',textContent:'⚽'}))"><span class="name">KuPS Kuopio</span></div>
+</div>
+<div class="watch">
+<span class="watch-channel"><span class="tvicon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m8 21 4-3 4 3"/></svg></span><strong>Transmissão não confirmada</strong></span>
+<span class="watch-time"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><strong>10:00</strong></span>
+</div>
+</article></section>
+
+<p class="footer">Horários de Brasília (BRT). A programação pode mudar; confirme junto à emissora.<br><em>Nota de cobertura: O time principal masculino do Flamengo atuou ontem (18/11) contra o Athletico-PR e não joga hoje. O Real Madrid masculino também não tem partida oficial hoje (19/11). Jogos de categorias de base (como sub-20, sub-17) e partidas de futebol feminino estão estritamente excluídos da programação.</em></p><p class="sources">Fontes: <a href="https://www.espn.com.br/futebol/calendario">ESPN Brasil</a>, <a href="https://www.placardefutebol.com.br/jogos-de-hoje">Placar de Futebol</a> e <a href="https://futebol.tv.br/">Futebol na TV</a>. Programação sujeita a alterações.</p></main></body></html>
